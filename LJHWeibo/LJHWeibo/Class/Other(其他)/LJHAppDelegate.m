@@ -7,16 +7,31 @@
 //
 
 #import "LJHAppDelegate.h"
-#import "LJHTabBarController.h"
+#import "LJHWeiboTool.h"
+#import "LJHAccountTool.h"
+#import "LJHAccount.h"
+#import "LJHOAuthViewController.h"
 @implementation LJHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];  
-    application.statusBarHidden = NO;
-    self.window.rootViewController = [[LJHTabBarController alloc] init];
     [self.window makeKeyAndVisible];
+    
+    //判断是否已授权
+    LJHAccount *account = [LJHAccountTool account];
+    
+    if (account)//已授权
+    {
+        //再判断是否是最新版本
+        [LJHWeiboTool chooseRootController];
+    }
+    else
+    {
+        self.window.rootViewController = [[LJHOAuthViewController alloc] init];
+    }
+
+    
     return YES;
 }
 

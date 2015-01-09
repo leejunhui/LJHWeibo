@@ -20,6 +20,11 @@
 		2D4F66FD1A60457300A3D805 /* UIBarButtonItem+LJH.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66FC1A60457300A3D805 /* UIBarButtonItem+LJH.m */; };
 		2D4F67001A60466A00A3D805 /* LJHTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66FF1A60466A00A3D805 /* LJHTitleButton.m */; };
 		2D4F67031A604A1C00A3D805 /* LJHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F67021A604A1C00A3D805 /* LJHSearchBar.m */; };
+		2D4F67061A604D7900A3D805 /* LJHOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F67051A604D7900A3D805 /* LJHOAuthViewController.m */; };
+		2D4F67091A604D8700A3D805 /* LJHAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F67081A604D8700A3D805 /* LJHAccount.m */; };
+		2D4F670D1A604DA400A3D805 /* LJHAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F670C1A604DA400A3D805 /* LJHAccountTool.m */; };
+		2D4F67101A604DAF00A3D805 /* LJHWeiboTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F670F1A604DAF00A3D805 /* LJHWeiboTool.m */; };
+		2D4F67131A604E4A00A3D805 /* LJHNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F67121A604E4A00A3D805 /* LJHNewFeatureController.m */; };
 		2DE550681A5FF83C00DBCB15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550671A5FF83C00DBCB15 /* Foundation.framework */; };
 		2DE5506A1A5FF83C00DBCB15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */; };
 		2DE5506C1A5FF83C00DBCB15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE5506B1A5FF83C00DBCB15 /* UIKit.framework */; };
@@ -74,6 +79,16 @@
 		2D4F66FF1A60466A00A3D805 /* LJHTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHTitleButton.m; sourceTree = "<group>"; };
 		2D4F67011A604A1C00A3D805 /* LJHSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHSearchBar.h; sourceTree = "<group>"; };
 		2D4F67021A604A1C00A3D805 /* LJHSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHSearchBar.m; sourceTree = "<group>"; };
+		2D4F67041A604D7900A3D805 /* LJHOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHOAuthViewController.h; sourceTree = "<group>"; };
+		2D4F67051A604D7900A3D805 /* LJHOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHOAuthViewController.m; sourceTree = "<group>"; };
+		2D4F67071A604D8700A3D805 /* LJHAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHAccount.h; sourceTree = "<group>"; };
+		2D4F67081A604D8700A3D805 /* LJHAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHAccount.m; sourceTree = "<group>"; };
+		2D4F670B1A604DA400A3D805 /* LJHAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHAccountTool.h; sourceTree = "<group>"; };
+		2D4F670C1A604DA400A3D805 /* LJHAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHAccountTool.m; sourceTree = "<group>"; };
+		2D4F670E1A604DAF00A3D805 /* LJHWeiboTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHWeiboTool.h; sourceTree = "<group>"; };
+		2D4F670F1A604DAF00A3D805 /* LJHWeiboTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHWeiboTool.m; sourceTree = "<group>"; };
+		2D4F67111A604E4A00A3D805 /* LJHNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHNewFeatureController.h; sourceTree = "<group>"; };
+		2D4F67121A604E4A00A3D805 /* LJHNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHNewFeatureController.m; sourceTree = "<group>"; };
 		2DE550641A5FF83B00DBCB15 /* LJHWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJHWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE550671A5FF83C00DBCB15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +148,15 @@
 		2D4F66FA1A60455B00A3D805 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		2D4F670A1A604D9900A3D805 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				2D4F670B1A604DA400A3D805 /* LJHAccountTool.h */,
+				2D4F670C1A604DA400A3D805 /* LJHAccountTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -413,6 +437,8 @@
 		2DE550AC1A5FFA2100DBCB15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2D4F67111A604E4A00A3D805 /* LJHNewFeatureController.h */,
+				2D4F67121A604E4A00A3D805 /* LJHNewFeatureController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -434,6 +460,7 @@
 		2DE550AF1A5FFA2100DBCB15 /* OAuth(授权) */ = {
 			isa = PBXGroup;
 			children = (
+				2D4F670A1A604D9900A3D805 /* Tool */,
 				2DE550B01A5FFA2100DBCB15 /* Controller */,
 				2DE550B11A5FFA2100DBCB15 /* Model */,
 				2DE550B21A5FFA2100DBCB15 /* View */,
@@ -444,6 +471,8 @@
 		2DE550B01A5FFA2100DBCB15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2D4F67041A604D7900A3D805 /* LJHOAuthViewController.h */,
+				2D4F67051A604D7900A3D805 /* LJHOAuthViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -458,6 +487,8 @@
 		2DE550B21A5FFA2100DBCB15 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D4F67071A604D8700A3D805 /* LJHAccount.h */,
+				2D4F67081A604D8700A3D805 /* LJHAccount.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -470,6 +501,8 @@
 				2DE550B61A5FFA2100DBCB15 /* LJHAppDelegate.m */,
 				2DE550B71A5FFA2100DBCB15 /* LJHWeibo-Prefix.pch */,
 				2DE550B81A5FFA2100DBCB15 /* main.m */,
+				2D4F670E1A604DAF00A3D805 /* LJHWeiboTool.h */,
+				2D4F670F1A604DAF00A3D805 /* LJHWeiboTool.m */,
 			);
 			path = "Other(其他)";
 			sourceTree = "<group>";
@@ -626,11 +659,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4F66EF1A60176100A3D805 /* LJHTabBarButton.m in Sources */,
+				2D4F67061A604D7900A3D805 /* LJHOAuthViewController.m in Sources */,
+				2D4F67091A604D8700A3D805 /* LJHAccount.m in Sources */,
 				2D4F67001A60466A00A3D805 /* LJHTitleButton.m in Sources */,
 				2D4F67031A604A1C00A3D805 /* LJHSearchBar.m in Sources */,
 				2D4F66DD1A6004FB00A3D805 /* LJHHomeViewController.m in Sources */,
 				2D4F66E31A60052600A3D805 /* LJHDiscoverController.m in Sources */,
+				2D4F67101A604DAF00A3D805 /* LJHWeiboTool.m in Sources */,
 				2D4F66E91A600F5200A3D805 /* UIImage+LJH.m in Sources */,
+				2D4F670D1A604DA400A3D805 /* LJHAccountTool.m in Sources */,
 				2DE550BA1A5FFA2100DBCB15 /* main.m in Sources */,
 				2D4F66F91A603DBE00A3D805 /* LJHNavigationController.m in Sources */,
 				2D4F66EC1A6011DD00A3D805 /* LJHTabBar.m in Sources */,
@@ -641,6 +678,7 @@
 				2D4F66E61A60053600A3D805 /* LJHMeViewController.m in Sources */,
 				2D4F66E01A60051300A3D805 /* LJHMessageViewController.m in Sources */,
 				2D4F66F51A60392B00A3D805 /* TextSizeTool.m in Sources */,
+				2D4F67131A604E4A00A3D805 /* LJHNewFeatureController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
