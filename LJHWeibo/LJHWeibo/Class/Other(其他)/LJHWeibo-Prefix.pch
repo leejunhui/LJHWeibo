@@ -13,4 +13,21 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+#import <AFNetworking.h>
+#import <MBProgressHUD.h>
+#import "UIImage+LJH.h"
+
+//判断是否是iOS7
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+//取色
+#define LJHColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+//自定义日志输出
+#ifdef DEBUG
+#define LJHLog(...) NSLog(__VA_ARGS__)
+#else
+#define LJHLog(...)
+#endif
+
+
 #endif
