@@ -17,6 +17,7 @@
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
 #import "UIImage+LJH.h"
+#import "UIBarButtonItem+LJH.h"
 #import "TextSizeTool.h"
 
 //判断是否是iOS7

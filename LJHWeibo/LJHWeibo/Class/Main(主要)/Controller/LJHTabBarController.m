@@ -12,6 +12,7 @@
 #import "LJHDiscoverController.h"
 #import "LJHMeViewController.h"
 #import "LJHTabBar.h"
+#import "LJHNavigationController.h"
 
 @interface LJHTabBarController()<LJHTabBarDelegate>
 @property (weak, nonatomic) LJHTabBar *customTabBar;
@@ -87,7 +88,7 @@
     else{
         child.tabBarItem.selectedImage = selectedImage;
     }
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:child];
+    LJHNavigationController *nav = [[LJHNavigationController alloc] initWithRootViewController:child];
     [self addChildViewController:nav];
     /**
      *  将子控制器所拥有的那个tabBarItem取出来传给自定义的tabBar来管理

@@ -1,0 +1,45 @@
+//
+//  LJHTitleButton.m
+//  LJHWeibo
+//
+//  Created by LeeJunHui on 15/1/10.
+//  Copyright (c) 2015年 Apple. All rights reserved.
+//
+
+#import "LJHTitleButton.h"
+#define LJHTitleButtonImageW 20
+@implementation LJHTitleButton
++(instancetype)titleButton{
+    return [[LJHTitleButton alloc] init];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
+        self.imageView.contentMode = UIViewContentModeCenter;
+        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        self.adjustsImageWhenHighlighted = NO;
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:19];
+        self.titleLabel.textAlignment = NSTextAlignmentRight;
+        [self setBackgroundImage:[UIImage resizedImageWithName:@"navigationbar_filter_background_highlighted"] forState:UIControlStateHighlighted];
+    }
+    return self;
+}
+
+- (CGRect)titleRectForContentRect:(CGRect)contentRect{
+    CGFloat titleX = 0;
+    CGFloat titleY = 0;
+    CGFloat titleW = contentRect.size.width - LJHTitleButtonImageW;
+    CGFloat titleH = contentRect.size.height;
+    return CGRectMake(titleX, titleY, titleW, titleH);
+}
+
+- (CGRect)imageRectForContentRect:(CGRect)contentRect{
+    
+    CGFloat imageY = 0;
+    CGFloat imageW = LJHTitleButtonImageW;
+    CGFloat imageX = contentRect.size.width - imageW;
+    CGFloat imageH = contentRect.size.height;
+    return CGRectMake(imageX, imageY, imageW, imageH);
+}
+
+@end

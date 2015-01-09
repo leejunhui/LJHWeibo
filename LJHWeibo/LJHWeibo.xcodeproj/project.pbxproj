@@ -16,6 +16,10 @@
 		2D4F66EF1A60176100A3D805 /* LJHTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66EE1A60176100A3D805 /* LJHTabBarButton.m */; };
 		2D4F66F21A601E9E00A3D805 /* LJHBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66F11A601E9E00A3D805 /* LJHBadgeButton.m */; };
 		2D4F66F51A60392B00A3D805 /* TextSizeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66F41A60392B00A3D805 /* TextSizeTool.m */; };
+		2D4F66F91A603DBE00A3D805 /* LJHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66F81A603DBE00A3D805 /* LJHNavigationController.m */; };
+		2D4F66FD1A60457300A3D805 /* UIBarButtonItem+LJH.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66FC1A60457300A3D805 /* UIBarButtonItem+LJH.m */; };
+		2D4F67001A60466A00A3D805 /* LJHTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66FF1A60466A00A3D805 /* LJHTitleButton.m */; };
+		2D4F67031A604A1C00A3D805 /* LJHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F67021A604A1C00A3D805 /* LJHSearchBar.m */; };
 		2DE550681A5FF83C00DBCB15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550671A5FF83C00DBCB15 /* Foundation.framework */; };
 		2DE5506A1A5FF83C00DBCB15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */; };
 		2DE5506C1A5FF83C00DBCB15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE5506B1A5FF83C00DBCB15 /* UIKit.framework */; };
@@ -50,8 +54,8 @@
 		2D4F66DF1A60051300A3D805 /* LJHMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHMessageViewController.m; sourceTree = "<group>"; };
 		2D4F66E11A60052600A3D805 /* LJHDiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHDiscoverController.h; sourceTree = "<group>"; };
 		2D4F66E21A60052600A3D805 /* LJHDiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHDiscoverController.m; sourceTree = "<group>"; };
-		2D4F66E41A60053600A3D805 /* LJHMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHMeViewController.h; sourceTree = "<group>"; };
-		2D4F66E51A60053600A3D805 /* LJHMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHMeViewController.m; sourceTree = "<group>"; };
+		2D4F66E41A60053600A3D805 /* LJHMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJHMeViewController.h; path = ../LJHMeViewController.h; sourceTree = "<group>"; };
+		2D4F66E51A60053600A3D805 /* LJHMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJHMeViewController.m; path = ../LJHMeViewController.m; sourceTree = "<group>"; };
 		2D4F66E71A600F5200A3D805 /* UIImage+LJH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LJH.h"; sourceTree = "<group>"; };
 		2D4F66E81A600F5200A3D805 /* UIImage+LJH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LJH.m"; sourceTree = "<group>"; };
 		2D4F66EA1A6011DD00A3D805 /* LJHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHTabBar.h; sourceTree = "<group>"; };
@@ -62,6 +66,14 @@
 		2D4F66F11A601E9E00A3D805 /* LJHBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHBadgeButton.m; sourceTree = "<group>"; };
 		2D4F66F31A60392B00A3D805 /* TextSizeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextSizeTool.h; path = "../../Other(其他)/TextSizeTool.h"; sourceTree = "<group>"; };
 		2D4F66F41A60392B00A3D805 /* TextSizeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextSizeTool.m; path = "../../Other(其他)/TextSizeTool.m"; sourceTree = "<group>"; };
+		2D4F66F71A603DBE00A3D805 /* LJHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHNavigationController.h; sourceTree = "<group>"; };
+		2D4F66F81A603DBE00A3D805 /* LJHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHNavigationController.m; sourceTree = "<group>"; };
+		2D4F66FB1A60457300A3D805 /* UIBarButtonItem+LJH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+LJH.h"; sourceTree = "<group>"; };
+		2D4F66FC1A60457300A3D805 /* UIBarButtonItem+LJH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+LJH.m"; sourceTree = "<group>"; };
+		2D4F66FE1A60466A00A3D805 /* LJHTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHTitleButton.h; sourceTree = "<group>"; };
+		2D4F66FF1A60466A00A3D805 /* LJHTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHTitleButton.m; sourceTree = "<group>"; };
+		2D4F67011A604A1C00A3D805 /* LJHSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHSearchBar.h; sourceTree = "<group>"; };
+		2D4F67021A604A1C00A3D805 /* LJHSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHSearchBar.m; sourceTree = "<group>"; };
 		2DE550641A5FF83B00DBCB15 /* LJHWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJHWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE550671A5FF83C00DBCB15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -114,6 +126,13 @@
 			children = (
 				2D4F66F31A60392B00A3D805 /* TextSizeTool.h */,
 				2D4F66F41A60392B00A3D805 /* TextSizeTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		2D4F66FA1A60455B00A3D805 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -231,6 +250,8 @@
 		2DE5509A1A5FFA2100DBCB15 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D4F67011A604A1C00A3D805 /* LJHSearchBar.h */,
+				2D4F67021A604A1C00A3D805 /* LJHSearchBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,6 +259,7 @@
 		2DE5509B1A5FFA2100DBCB15 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				2D4F66FA1A60455B00A3D805 /* Tool */,
 				2DE5509C1A5FFA2100DBCB15 /* Controller */,
 				2DE5509D1A5FFA2100DBCB15 /* Model */,
 				2DE5509E1A5FFA2100DBCB15 /* View */,
@@ -264,6 +286,8 @@
 		2DE5509E1A5FFA2100DBCB15 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D4F66FE1A60466A00A3D805 /* LJHTitleButton.h */,
+				2D4F66FF1A60466A00A3D805 /* LJHTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +308,8 @@
 			children = (
 				2DE550BB1A60041400DBCB15 /* LJHTabBarController.h */,
 				2DE550BC1A60041400DBCB15 /* LJHTabBarController.m */,
+				2D4F66F71A603DBE00A3D805 /* LJHNavigationController.h */,
+				2D4F66F81A603DBE00A3D805 /* LJHNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,8 +340,6 @@
 				2DE550A41A5FFA2100DBCB15 /* Controller */,
 				2DE550A51A5FFA2100DBCB15 /* Model */,
 				2DE550A61A5FFA2100DBCB15 /* View */,
-				2D4F66E41A60053600A3D805 /* LJHMeViewController.h */,
-				2D4F66E51A60053600A3D805 /* LJHMeViewController.m */,
 			);
 			path = "Me(我)";
 			sourceTree = "<group>";
@@ -323,6 +347,8 @@
 		2DE550A41A5FFA2100DBCB15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2D4F66E41A60053600A3D805 /* LJHMeViewController.h */,
+				2D4F66E51A60053600A3D805 /* LJHMeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -453,6 +479,8 @@
 			children = (
 				2D4F66E71A600F5200A3D805 /* UIImage+LJH.h */,
 				2D4F66E81A600F5200A3D805 /* UIImage+LJH.m */,
+				2D4F66FB1A60457300A3D805 /* UIBarButtonItem+LJH.h */,
+				2D4F66FC1A60457300A3D805 /* UIBarButtonItem+LJH.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -598,11 +626,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4F66EF1A60176100A3D805 /* LJHTabBarButton.m in Sources */,
+				2D4F67001A60466A00A3D805 /* LJHTitleButton.m in Sources */,
+				2D4F67031A604A1C00A3D805 /* LJHSearchBar.m in Sources */,
 				2D4F66DD1A6004FB00A3D805 /* LJHHomeViewController.m in Sources */,
 				2D4F66E31A60052600A3D805 /* LJHDiscoverController.m in Sources */,
 				2D4F66E91A600F5200A3D805 /* UIImage+LJH.m in Sources */,
 				2DE550BA1A5FFA2100DBCB15 /* main.m in Sources */,
+				2D4F66F91A603DBE00A3D805 /* LJHNavigationController.m in Sources */,
 				2D4F66EC1A6011DD00A3D805 /* LJHTabBar.m in Sources */,
+				2D4F66FD1A60457300A3D805 /* UIBarButtonItem+LJH.m in Sources */,
 				2D4F66F21A601E9E00A3D805 /* LJHBadgeButton.m in Sources */,
 				2DE550B91A5FFA2100DBCB15 /* LJHAppDelegate.m in Sources */,
 				2DE550BD1A60041400DBCB15 /* LJHTabBarController.m in Sources */,
