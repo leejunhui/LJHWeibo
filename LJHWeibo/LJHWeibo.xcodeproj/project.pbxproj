@@ -15,6 +15,7 @@
 		2D4F66EC1A6011DD00A3D805 /* LJHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66EB1A6011DD00A3D805 /* LJHTabBar.m */; };
 		2D4F66EF1A60176100A3D805 /* LJHTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66EE1A60176100A3D805 /* LJHTabBarButton.m */; };
 		2D4F66F21A601E9E00A3D805 /* LJHBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66F11A601E9E00A3D805 /* LJHBadgeButton.m */; };
+		2D4F66F51A60392B00A3D805 /* TextSizeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66F41A60392B00A3D805 /* TextSizeTool.m */; };
 		2DE550681A5FF83C00DBCB15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550671A5FF83C00DBCB15 /* Foundation.framework */; };
 		2DE5506A1A5FF83C00DBCB15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */; };
 		2DE5506C1A5FF83C00DBCB15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE5506B1A5FF83C00DBCB15 /* UIKit.framework */; };
@@ -59,6 +60,8 @@
 		2D4F66EE1A60176100A3D805 /* LJHTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHTabBarButton.m; sourceTree = "<group>"; };
 		2D4F66F01A601E9E00A3D805 /* LJHBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHBadgeButton.h; sourceTree = "<group>"; };
 		2D4F66F11A601E9E00A3D805 /* LJHBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHBadgeButton.m; sourceTree = "<group>"; };
+		2D4F66F31A60392B00A3D805 /* TextSizeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextSizeTool.h; path = "../../Other(其他)/TextSizeTool.h"; sourceTree = "<group>"; };
+		2D4F66F41A60392B00A3D805 /* TextSizeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextSizeTool.m; path = "../../Other(其他)/TextSizeTool.m"; sourceTree = "<group>"; };
 		2DE550641A5FF83B00DBCB15 /* LJHWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJHWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE550671A5FF83C00DBCB15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -106,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D4F66F61A60396600A3D805 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				2D4F66F31A60392B00A3D805 /* TextSizeTool.h */,
+				2D4F66F41A60392B00A3D805 /* TextSizeTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		2DE5505B1A5FF83B00DBCB15 = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +271,7 @@
 		2DE5509F1A5FFA2100DBCB15 /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				2D4F66F61A60396600A3D805 /* Tool */,
 				2DE550A01A5FFA2100DBCB15 /* Controller */,
 				2DE550A11A5FFA2100DBCB15 /* Model */,
 				2DE550A21A5FFA2100DBCB15 /* View */,
@@ -595,6 +608,7 @@
 				2DE550BD1A60041400DBCB15 /* LJHTabBarController.m in Sources */,
 				2D4F66E61A60053600A3D805 /* LJHMeViewController.m in Sources */,
 				2D4F66E01A60051300A3D805 /* LJHMessageViewController.m in Sources */,
+				2D4F66F51A60392B00A3D805 /* TextSizeTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

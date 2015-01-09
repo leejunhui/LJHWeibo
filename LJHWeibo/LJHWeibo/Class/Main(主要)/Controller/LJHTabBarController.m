@@ -55,6 +55,7 @@
  */
 - (void)setupAllChildControllers{
     LJHHomeViewController *home = [[LJHHomeViewController alloc] init];
+    home.tabBarItem.badgeValue = @"99+";
     [self setupChildVC:home title:@"首页" icon:@"tabbar_home" highIcon:@"tabbar_home_selected"];
 
     LJHMessageViewController *message = [[LJHMessageViewController alloc] init];

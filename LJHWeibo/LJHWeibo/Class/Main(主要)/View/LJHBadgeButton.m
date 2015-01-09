@@ -15,8 +15,10 @@
     if (self = [super initWithFrame:frame]) {
         [self setBackgroundImage:[UIImage resizedImageWithName:@"main_badge"] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.font = [UIFont systemFontOfSize:11];
         self.hidden = YES;
+        self.userInteractionEnabled = NO;
     }
     return self;
 }
@@ -29,7 +31,7 @@
         self.hidden = NO;
         [self setTitle:badgeValue forState:UIControlStateNormal];
         CGRect buttonFrame = self.frame;
-        CGSize textSize = [badgeValue sizeWithFont:self.titleLabel.font];
+        CGSize textSize = [TextSizeTool sizeWithText:badgeValue font:self.titleLabel.font maxSize:CGSizeMake(100, self.currentBackgroundImage.size.height)];
         buttonFrame.size.width = textSize.width + 10;
         buttonFrame.size.height = self.currentBackgroundImage.size.height;
         self.frame = buttonFrame;
