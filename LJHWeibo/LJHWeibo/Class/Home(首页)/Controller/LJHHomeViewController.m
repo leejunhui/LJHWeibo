@@ -10,4 +10,10 @@
 
 @implementation LJHHomeViewController
 
+-(void)viewDidLoad{
+}
+
+- (void)click{
+}
+
 @end

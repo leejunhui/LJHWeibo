@@ -14,6 +14,7 @@
 		2D4F66E91A600F5200A3D805 /* UIImage+LJH.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66E81A600F5200A3D805 /* UIImage+LJH.m */; };
 		2D4F66EC1A6011DD00A3D805 /* LJHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66EB1A6011DD00A3D805 /* LJHTabBar.m */; };
 		2D4F66EF1A60176100A3D805 /* LJHTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66EE1A60176100A3D805 /* LJHTabBarButton.m */; };
+		2D4F66F21A601E9E00A3D805 /* LJHBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66F11A601E9E00A3D805 /* LJHBadgeButton.m */; };
 		2DE550681A5FF83C00DBCB15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550671A5FF83C00DBCB15 /* Foundation.framework */; };
 		2DE5506A1A5FF83C00DBCB15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */; };
 		2DE5506C1A5FF83C00DBCB15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE5506B1A5FF83C00DBCB15 /* UIKit.framework */; };
@@ -56,6 +57,8 @@
 		2D4F66EB1A6011DD00A3D805 /* LJHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHTabBar.m; sourceTree = "<group>"; };
 		2D4F66ED1A60176100A3D805 /* LJHTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHTabBarButton.h; sourceTree = "<group>"; };
 		2D4F66EE1A60176100A3D805 /* LJHTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHTabBarButton.m; sourceTree = "<group>"; };
+		2D4F66F01A601E9E00A3D805 /* LJHBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHBadgeButton.h; sourceTree = "<group>"; };
+		2D4F66F11A601E9E00A3D805 /* LJHBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHBadgeButton.m; sourceTree = "<group>"; };
 		2DE550641A5FF83B00DBCB15 /* LJHWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJHWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE550671A5FF83C00DBCB15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -286,6 +289,8 @@
 				2D4F66EB1A6011DD00A3D805 /* LJHTabBar.m */,
 				2D4F66ED1A60176100A3D805 /* LJHTabBarButton.h */,
 				2D4F66EE1A60176100A3D805 /* LJHTabBarButton.m */,
+				2D4F66F01A601E9E00A3D805 /* LJHBadgeButton.h */,
+				2D4F66F11A601E9E00A3D805 /* LJHBadgeButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -585,6 +590,7 @@
 				2D4F66E91A600F5200A3D805 /* UIImage+LJH.m in Sources */,
 				2DE550BA1A5FFA2100DBCB15 /* main.m in Sources */,
 				2D4F66EC1A6011DD00A3D805 /* LJHTabBar.m in Sources */,
+				2D4F66F21A601E9E00A3D805 /* LJHBadgeButton.m in Sources */,
 				2DE550B91A5FFA2100DBCB15 /* LJHAppDelegate.m in Sources */,
 				2DE550BD1A60041400DBCB15 /* LJHTabBarController.m in Sources */,
 				2D4F66E61A60053600A3D805 /* LJHMeViewController.m in Sources */,

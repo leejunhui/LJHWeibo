@@ -7,7 +7,11 @@
 //
 
 #import "LJHTabBarButton.h"
+#import "LJHBadgeButton.h"
 #define LJHTabBarButtonImageRatio 0.7
+@interface LJHTabBarButton()
+@property (weak, nonatomic) LJHBadgeButton *badgeButton;
+@end
 @implementation LJHTabBarButton
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -17,6 +21,14 @@
         self.titleLabel.font = [UIFont systemFontOfSize:12];
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
+        
+        /**
+         *  添加一个badgeButton
+         */
+        LJHBadgeButton *badgeButton = [[LJHBadgeButton alloc] init];
+        badgeButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+        [self addSubview:badgeButton];
+        self.badgeButton = badgeButton;
     }
     return self;
 }
@@ -28,9 +40,33 @@
  *  重写setter
  */
 - (void)setItem:(UITabBarItem *)item{
-    [self setTitle:item.title forState:UIControlStateNormal];
-    [self setImage:item.image forState:UIControlStateNormal];
-    [self setImage:item.selectedImage forState:UIControlStateSelected];
+    _item = item;
+
+    //KVO来实现监听item的badgeValue的变化
+    [item addObserver:self forKeyPath:@"badgeValue" options:0 context:nil];
+    [item addObserver:self forKeyPath:@"title" options:0 context:nil];
+    [item addObserver:self forKeyPath:@"image" options:0 context:nil];
+    [item addObserver:self forKeyPath:@"selectedImage" options:0 context:nil];
+    
+    [self observeValueForKeyPath:nil ofObject:nil change:nil context:nil];
+}
+
+- (void)dealloc{
+    [self.item removeObserver:self forKeyPath:@"badgeValue"];
+    [self.item removeObserver:self forKeyPath:@"title"];
+    [self.item removeObserver:self forKeyPath:@"image"];
+    [self.item removeObserver:self forKeyPath:@"selectedImage"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    [self setTitle:self.item.title forState:UIControlStateNormal];
+    [self setImage:self.item.image forState:UIControlStateNormal];
+    [self setImage:self.item.selectedImage forState:UIControlStateSelected];
+    self.badgeButton.badgeValue = self.item.badgeValue;
+    CGRect buttonF = self.badgeButton.frame;
+    buttonF.origin.x = self.frame.size.width - buttonF.size.width - 5;
+    buttonF.origin.y = 0;
+    self.badgeButton.frame = buttonF;
 }
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect{
