@@ -20,7 +20,7 @@
     
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSForegroundColorAttributeName] = iOS7 ? [UIColor orangeColor] :[UIColor blackColor];
-    attrs[NSFontAttributeName]            = iOS7 ? [UIFont systemFontOfSize:14] : [UIFont systemFontOfSize:12];
+    attrs[NSFontAttributeName]            = iOS7 ? [UIFont systemFontOfSize:16] : [UIFont systemFontOfSize:12];
     NSShadow *shadow                      = [[NSShadow alloc] init];
     shadow.shadowOffset                   = CGSizeZero;
     attrs[NSShadowAttributeName]          = shadow;

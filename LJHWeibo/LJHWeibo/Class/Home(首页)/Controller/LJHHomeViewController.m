@@ -8,12 +8,57 @@
 
 #import "LJHHomeViewController.h"
 #import "LJHTitleButton.h"
+#import "LJHAccount.h"
+#import "LJHAccountTool.h"
+#import "LJHStatus.h"
+#import "LJHUser.h"
 #define LJHTitleButtonDown 0
 #define LJHTitleButtonUp -1
+@interface LJHHomeViewController()
+@property (strong, nonatomic) NSArray *status;
+@end
+
 @implementation LJHHomeViewController
+
+- (NSArray *)status{
+    if (_status == nil) {
+        _status = [NSArray array];
+    }
+    return _status;
+}
 
 -(void)viewDidLoad{
     [self setupNav];
+    [self setupStatusData];
+}
+
+/**
+ *  加载微博数据
+ */
+- (void)setupStatusData{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //说明服务器返回的是json
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    LJHAccount *account = [LJHAccountTool account];
+    params[@"access_token"] = account.access_token;
+    params[@"count"] = [NSString stringWithFormat:@"%d",15];
+    [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        //字典数组转模型数组
+        
+        self.status = [LJHStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        [self.tableView reloadData];
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        LJHLog(@"请求失败 : %@",error);
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+
 }
 
 - (void)setupNav{
@@ -69,16 +114,22 @@
 
 #pragma mark - UITableView DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.status.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifier = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    cell.textLabel.text = @"iOS";
+    LJHStatus *status = self.status[indexPath.row];
+//    NSDictionary *dict = self.status[indexPath.row];
+    cell.textLabel.text = status.text;
+    LJHUser *user = status.user;
+    cell.detailTextLabel.text = user.name;
+    NSString *iconUrl = user.profile_image_url;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:iconUrl] placeholderImage:[UIImage imageWithName:@"tabbar_compose_button"]];
     return cell;
 }
 
