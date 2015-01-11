@@ -21,4 +21,12 @@
  *  用户头像
  */
 @property (copy, nonatomic) NSString *profile_image_url;
+/**
+ *  会员等级
+ */
+@property (assign, nonatomic) int mbrank;
+/**
+ *  会员类型
+ */
+@property (assign, nonatomic) int mbtype;
 @end

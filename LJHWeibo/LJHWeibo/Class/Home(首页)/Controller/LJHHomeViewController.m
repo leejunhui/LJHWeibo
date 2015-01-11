@@ -12,19 +12,21 @@
 #import "LJHAccountTool.h"
 #import "LJHStatus.h"
 #import "LJHUser.h"
+#import "LJHStatusFrame.h"
+#import "LJHStatusCell.h"
 #define LJHTitleButtonDown 0
 #define LJHTitleButtonUp -1
 @interface LJHHomeViewController()
-@property (strong, nonatomic) NSArray *status;
+@property (strong, nonatomic) NSArray *statuFrames;
 @end
 
 @implementation LJHHomeViewController
 
-- (NSArray *)status{
-    if (_status == nil) {
-        _status = [NSArray array];
+- (NSArray *)statuFrames{
+    if (_statuFrames == nil) {
+        _statuFrames = [NSArray array];
     }
-    return _status;
+    return _statuFrames;
 }
 
 -(void)viewDidLoad{
@@ -43,12 +45,22 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     LJHAccount *account = [LJHAccountTool account];
     params[@"access_token"] = account.access_token;
-    params[@"count"] = [NSString stringWithFormat:@"%d",15];
+    params[@"count"] = [NSString stringWithFormat:@"%d",50];
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         //字典数组转模型数组
+        NSArray *statusArray = [LJHStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         
-        self.status = [LJHStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        //创建statusFrame模型对象
+        NSMutableArray *statusFrameArray = [NSMutableArray array];
+        for (LJHStatus *status in statusArray) {
+            LJHStatusFrame *statusFrame = [[LJHStatusFrame alloc] init];
+            statusFrame.status = status;
+            [statusFrameArray addObject:statusFrame];
+        }
+        
+        //赋值
+        self.statuFrames = statusFrameArray;
         
         [self.tableView reloadData];
         
@@ -72,6 +84,10 @@
     titleButton.frame = CGRectMake(0, 0, 120, 40);
     [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     self.navigationItem.titleView = titleButton;
+    
+    self.tableView.backgroundColor = LJHColor(226, 226, 226);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, LJHStatusTableBorder, 0);
 }
 
 - (void)titleButtonClick:(LJHTitleButton *)button{
@@ -114,31 +130,27 @@
 
 #pragma mark - UITableView DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.status.count;
+    return self.statuFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
-    }
-    LJHStatus *status = self.status[indexPath.row];
-//    NSDictionary *dict = self.status[indexPath.row];
-    cell.textLabel.text = status.text;
-    LJHUser *user = status.user;
-    cell.detailTextLabel.text = user.name;
-    NSString *iconUrl = user.profile_image_url;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:iconUrl] placeholderImage:[UIImage imageWithName:@"tabbar_compose_button"]];
+    LJHStatusCell *cell = [LJHStatusCell cellWithTableView:tableView];
+    cell.statusFrame = self.statuFrames[indexPath.row];
     return cell;
 }
 
 #pragma mark - UITableView Delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    LJHStatusFrame *statusFrame = self.statuFrames[indexPath.row];
+    return statusFrame.cellHeight;
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view.backgroundColor = [UIColor grayColor];
     vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 @end
