@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class LJHStatus;
 @interface LJHStatusToolBar : UIImageView
-
+@property (strong, nonatomic) LJHStatus *status;
 @end

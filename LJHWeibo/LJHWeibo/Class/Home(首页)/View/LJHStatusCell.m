@@ -307,6 +307,7 @@
 
 - (void)setupToolBar{
     self.statusToolBar.frame = self.statusFrame.statusToolBarF;
+    self.statusToolBar.status = self.statusFrame.status;
 }
 
 @end
