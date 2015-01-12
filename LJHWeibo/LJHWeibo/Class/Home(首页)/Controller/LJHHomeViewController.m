@@ -45,7 +45,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     LJHAccount *account = [LJHAccountTool account];
     params[@"access_token"] = account.access_token;
-    params[@"count"] = [NSString stringWithFormat:@"%d",50];
+    params[@"count"] = [NSString stringWithFormat:@"%d",10];
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         //字典数组转模型数组

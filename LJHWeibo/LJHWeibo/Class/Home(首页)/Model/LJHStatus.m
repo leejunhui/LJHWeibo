@@ -10,17 +10,21 @@
 #import "NSDate+LJH.h"
 @implementation LJHStatus
 
-
 /**
  *  重写getter方法 Sun Jan 11 20:15:37 +0800 2015
 EEE MMM dd HH:mm:ss Z yyyy
+ _created_at	NSString *	@"Mon Jan 12 10:28:23 +0800 2015"	0x0000000170057100
  */
 - (NSString *)created_at{
+    
+//    NSLog(@"%@",_created_at);
     // 1.获得微博的发送时间
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
+    [fmt setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    fmt.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:8 * 3600];
     NSDate *createDate = [fmt dateFromString:_created_at];
-
+//    NSLog(@"%@",createDate);
     //2.判断微博的发送时间和现在时间的差距
     if ([createDate isToday]) { //今天
         if ([createDate deltaWithNow].hour >= 1) {

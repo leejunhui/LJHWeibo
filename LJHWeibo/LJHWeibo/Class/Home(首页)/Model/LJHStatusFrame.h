@@ -18,7 +18,7 @@
 /**来源字体 */
 #define LJHStatusSourceFont LJHStatusTimeFont
 /**正文字体 */
-#define LJHStatusContentFont [UIFont systemFontOfSize:13]
+#define LJHStatusContentFont [UIFont systemFontOfSize:15]
 /**被转发正文字体 */
 #define LJHRetweetStatusContentFont LJHStatusContentFont
 
