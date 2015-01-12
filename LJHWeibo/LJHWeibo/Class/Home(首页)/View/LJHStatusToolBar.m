@@ -4,7 +4,7 @@
 //
 //  Created by LeeJunHui on 15/1/11.
 //  Copyright (c) 2015年 Apple. All rights reserved.
-//
+//  微博cell底部工具条
 
 #import "LJHStatusToolBar.h"
 #import "LJHStatus.h"

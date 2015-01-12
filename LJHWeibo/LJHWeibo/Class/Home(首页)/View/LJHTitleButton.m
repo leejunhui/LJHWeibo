@@ -4,7 +4,7 @@
 //
 //  Created by LeeJunHui on 15/1/10.
 //  Copyright (c) 2015年 Apple. All rights reserved.
-//
+//  导航栏标题按钮
 
 #import "LJHTitleButton.h"
 #define LJHTitleButtonImageW 20

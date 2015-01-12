@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D023F0C1A64112600E4215B /* LJHReweetStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D023F0B1A64112600E4215B /* LJHReweetStatusView.m */; };
+		2D023F0F1A64159800E4215B /* LJHStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D023F0E1A64159800E4215B /* LJHStatusTopView.m */; };
 		2D0C87441A61188A00725FC9 /* LJHStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0C87431A61188A00725FC9 /* LJHStatusCell.m */; };
 		2D0EEE741A60E7DB00D2680D /* LJHStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0EEE731A60E7DB00D2680D /* LJHStatus.m */; };
 		2D0EEE771A60E7E400D2680D /* LJHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0EEE761A60E7E400D2680D /* LJHUser.m */; };
@@ -68,6 +70,10 @@
 
 /* Begin PBXFileReference section */
 		06231EAFF7773C619AC300E6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D023F0A1A64112600E4215B /* LJHReweetStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHReweetStatusView.h; sourceTree = "<group>"; };
+		2D023F0B1A64112600E4215B /* LJHReweetStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHReweetStatusView.m; sourceTree = "<group>"; };
+		2D023F0D1A64159800E4215B /* LJHStatusTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusTopView.h; sourceTree = "<group>"; };
+		2D023F0E1A64159800E4215B /* LJHStatusTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHStatusTopView.m; sourceTree = "<group>"; };
 		2D0C87421A61188A00725FC9 /* LJHStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusCell.h; sourceTree = "<group>"; };
 		2D0C87431A61188A00725FC9 /* LJHStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHStatusCell.m; sourceTree = "<group>"; };
 		2D0EEE721A60E7DB00D2680D /* LJHStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatus.h; sourceTree = "<group>"; };
@@ -402,6 +408,10 @@
 				2D0C87431A61188A00725FC9 /* LJHStatusCell.m */,
 				2D9D32011A62BCCF00CCA7D5 /* LJHStatusToolBar.h */,
 				2D9D32021A62BCCF00CCA7D5 /* LJHStatusToolBar.m */,
+				2D023F0A1A64112600E4215B /* LJHReweetStatusView.h */,
+				2D023F0B1A64112600E4215B /* LJHReweetStatusView.m */,
+				2D023F0D1A64159800E4215B /* LJHStatusTopView.h */,
+				2D023F0E1A64159800E4215B /* LJHStatusTopView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -775,6 +785,7 @@
 				2D4F670D1A604DA400A3D805 /* LJHAccountTool.m in Sources */,
 				2DE550BA1A5FFA2100DBCB15 /* main.m in Sources */,
 				2D4F66F91A603DBE00A3D805 /* LJHNavigationController.m in Sources */,
+				2D023F0C1A64112600E4215B /* LJHReweetStatusView.m in Sources */,
 				2D4F66EC1A6011DD00A3D805 /* LJHTabBar.m in Sources */,
 				2D4F66FD1A60457300A3D805 /* UIBarButtonItem+LJH.m in Sources */,
 				2D4F66F21A601E9E00A3D805 /* LJHBadgeButton.m in Sources */,
@@ -787,6 +798,7 @@
 				2D9D32001A62B1E700CCA7D5 /* NSDate+LJH.m in Sources */,
 				2D4F67131A604E4A00A3D805 /* LJHNewFeatureController.m in Sources */,
 				2D0C87441A61188A00725FC9 /* LJHStatusCell.m in Sources */,
+				2D023F0F1A64159800E4215B /* LJHStatusTopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
