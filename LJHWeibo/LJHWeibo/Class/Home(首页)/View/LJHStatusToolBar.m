@@ -8,7 +8,26 @@
 
 #import "LJHStatusToolBar.h"
 
+@interface LJHStatusToolBar()
+@property (strong, nonatomic) NSMutableArray *btns;
+@property (strong, nonatomic) NSMutableArray *dividers;
+@end
+
 @implementation LJHStatusToolBar
+
+- (NSMutableArray *)btns{
+    if (_btns == nil) {
+        _btns = [NSMutableArray array];
+    }
+    return _btns;
+}
+
+- (NSMutableArray *)dividers{
+    if (_dividers == nil) {
+        _dividers = [NSMutableArray array];
+    }
+    return _dividers;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -24,9 +43,23 @@
         [self setupBtnWithTitle:@"评论" image:@"timeline_icon_comment" bgImage:@"timeline_card_middlebottom_highlighted"];
         
         [self setupBtnWithTitle:@"赞" image:@"timeline_icon_unlike" bgImage:@"timeline_card_rightbottom_highlighted"];
+        
+        //3.添加分割线
+        [self setupDivider];
+        [self setupDivider];
     }
     return self;
 }
+/**
+ *  初始化分割线
+ */
+- (void)setupDivider{
+    UIImageView *divider = [[UIImageView alloc] init];
+    divider.image = [UIImage imageWithName:@"timeline_card_bottom_line"];
+    [self addSubview:divider];
+    [self.dividers addObject:divider];
+}
+
 
 /**
  *  初始化按钮
@@ -45,6 +78,7 @@
     btn.adjustsImageWhenHighlighted = NO;
     [btn setBackgroundImage:[UIImage resizedImageWithName:bgImage] forState:UIControlStateHighlighted];
     [self addSubview:btn];
+    [self.btns addObject:btn];
 }
 
 /**
@@ -53,16 +87,30 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    for (int index = 0; index < self.subviews.count; index ++) {
-        UIButton *btn = self.subviews[index];
+    //1.设置按钮的frame
+    int btnCount = (int)self.btns.count;
+    CGFloat btnY = 0;
+    CGFloat btnW = self.frame.size.width / btnCount;
+    CGFloat btnH = self.frame.size.height;
+    for (int index = 0; index < btnCount; index ++) {
+        UIButton *btn = self.btns[index];
         
         //设置frame
-        
-        CGFloat btnY = 0;
-        CGFloat btnW = self.frame.size.width / self.subviews.count;
-        CGFloat btnH = self.frame.size.height;
         CGFloat btnX = index * btnW;
         btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
+    }
+    
+    //2.设置分割线的frame
+    CGFloat dividerH = btnH;
+    CGFloat dividerW = 2;
+    CGFloat dividerY = 0;
+    int dividerCount = (int)self.dividers.count;
+    for (int j = 0; j < dividerCount; j++) {
+        UIImageView *divider = self.dividers[j];
+    
+        CGFloat dividerX = (j+1) * btnW;
+        //设置frame
+        divider.frame = CGRectMake(dividerX, dividerY, dividerW, dividerH);
     }
 }
 
