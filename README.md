@@ -12,4 +12,5 @@ Complete the verify of version(Show the new feature page whether or not)
 Customize the Cell
 #Day 4
 Complete the Cell of HomeVC.
-
+#Day 5
+Customize the cellToolBar and fix some bugs.
