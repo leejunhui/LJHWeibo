@@ -14,3 +14,7 @@ Customize the Cell
 Complete the Cell of HomeVC.
 #Day 5
 Customize the cellToolBar and fix some bugs.
+#Day 6
+Fix some bugs and Begin the work of photo.
+#Day 7 
+Complete the display of the photo of the Weibo.
