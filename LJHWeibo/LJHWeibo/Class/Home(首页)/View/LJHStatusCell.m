@@ -15,15 +15,17 @@
 @interface LJHStatusCell()
 /** 顶部的view */
 @property (weak, nonatomic) LJHStatusTopView *topView;
-
-
-
 /** 微博的工具条 */
 @property (weak, nonatomic) LJHStatusToolBar *statusToolBar;
 @end
 
-@implementation LJHStatusCell
 
+@implementation LJHStatusCell
+/**
+ @brief 这是一个代码自定义的cell的初始化类方法
+ @param tableView 传进来的tableView
+ @return 返回一个创建好了的cell
+ */
 + (instancetype)cellWithTableView:(UITableView *)tableView{
     static NSString *identifier = @"status";
     LJHStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -52,6 +54,7 @@
  *  原创微博内部的子控件
  */
 - (void)setupOriginalStatusSubViews{
+    self.backgroundColor = [UIColor clearColor];
     /**1.顶部的view */
     LJHStatusTopView *topView = [[LJHStatusTopView alloc] init];
     [self.contentView addSubview:topView];

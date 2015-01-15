@@ -36,7 +36,7 @@
 /** 会员图标 */
 @property (assign, nonatomic, readonly) CGRect vipViewF;
 /** 配图 */
-@property (assign, nonatomic, readonly) CGRect photoViewF;
+@property (assign, nonatomic, readonly) CGRect photosViewF;
 /** 昵称 */
 @property (assign, nonatomic, readonly) CGRect nameLabelF;
 /** 时间 */
@@ -53,7 +53,7 @@
 /** 被转发微博的正文 */
 @property (assign, nonatomic, readonly) CGRect retweetContentLabelF;
 /** 被转发微博的配图 */
-@property (assign, nonatomic, readonly) CGRect retweetPhotoViewF;
+@property (assign, nonatomic, readonly) CGRect retweetPhotosViewF;
 
 /** 微博的工具条 */
 @property (assign, nonatomic, readonly) CGRect statusToolBarF;

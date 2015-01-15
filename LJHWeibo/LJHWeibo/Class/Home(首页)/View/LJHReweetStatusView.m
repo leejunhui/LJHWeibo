@@ -10,19 +10,24 @@
 #import "LJHStatusFrame.h"
 #import "LJHStatus.h"
 #import "LJHUser.h"
+#import "LJHPhoto.h"
+#import "LJHPhotosView.h"
 @interface LJHReweetStatusView()
 /** 被转发微博作者的昵称 */
 @property (weak, nonatomic) UILabel *retweetNameLabel;
 /** 被转发微博的正文 */
 @property (weak, nonatomic) UILabel *retweetContentLabel;
 /** 被转发微博的配图 */
-@property (weak, nonatomic) UIImageView *retweetPhotoView;
+@property (weak, nonatomic) LJHPhotosView *retweetPhotosView;
 @end
 
 @implementation LJHReweetStatusView
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
+        
+        self.userInteractionEnabled = YES;
+        
         //1.设置背景图片
         self.image = [UIImage resizedImageWithName:@"timeline_retweet_background" left:0.9 top:0.5];
         /**2.被转发微博作者的昵称 */
@@ -43,9 +48,9 @@
         self.retweetContentLabel = retweetContentLabel;
         
         /**4.被转发微博的配图 */
-        UIImageView *retweetPhotoView = [[UIImageView alloc] init];
+        LJHPhotosView *retweetPhotoView = [[LJHPhotosView alloc] init];
         [self addSubview:retweetPhotoView];
-        self.retweetPhotoView = retweetPhotoView;
+        self.retweetPhotosView = retweetPhotoView;
         
     }
     return self;
@@ -64,14 +69,14 @@
     self.retweetContentLabel.frame = self.statusFrame.retweetContentLabelF;
     
     //4.配图
-    if (retweeted_status.thumbnail_pic)
+    if (retweeted_status.pic_urls.count)
     {
-        self.retweetPhotoView.hidden = NO;
-        [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retweeted_status.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
-        self.retweetPhotoView.frame = self.statusFrame.retweetPhotoViewF;
+        self.retweetPhotosView.hidden = NO;
+        self.retweetPhotosView.frame = self.statusFrame.retweetPhotosViewF;
+        self.retweetPhotosView.photos = retweeted_status.pic_urls;
     }
     else{
-        self.retweetPhotoView.hidden = YES;
+        self.retweetPhotosView.hidden = YES;
     }
 }
 

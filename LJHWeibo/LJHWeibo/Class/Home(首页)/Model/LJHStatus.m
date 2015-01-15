@@ -8,7 +8,14 @@
 
 #import "LJHStatus.h"
 #import "NSDate+LJH.h"
+#import "LJHPhoto.h"
 @implementation LJHStatus
+
+
+- (NSDictionary *)objectClassInArray{
+    return @{@"pic_urls": [LJHPhoto class]};
+}
+
 
 /**
  *  重写getter方法 Sun Jan 11 20:15:37 +0800 2015

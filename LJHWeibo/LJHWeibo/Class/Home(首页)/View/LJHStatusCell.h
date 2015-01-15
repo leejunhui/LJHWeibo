@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 @class LJHStatusFrame;
+/**
+ *  微博cell
+ */
 @interface LJHStatusCell : UITableViewCell
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 @property (strong, nonatomic) LJHStatusFrame *statusFrame;

@@ -54,6 +54,9 @@
         //创建statusFrame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
         for (LJHStatus *status in statusArray) {
+            
+//            LJHLog(@"%@",[[status.pic_urls lastObject] class]);
+            
             LJHStatusFrame *statusFrame = [[LJHStatusFrame alloc] init];
             statusFrame.status = status;
             [statusFrameArray addObject:statusFrame];

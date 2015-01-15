@@ -41,10 +41,15 @@
  *  微博作者
  */
 @property (strong, nonatomic) LJHUser *user;
+
+/**
+ *  微博的配图
+ */
+@property (strong, nonatomic) NSArray *pic_urls;
 /**
  *  微博的单张配图
  */
-@property (copy, nonatomic) NSString *thumbnail_pic;
+//@property (copy, nonatomic) NSString *thumbnail_pic;
 /**
  *  被转发的微博
  */

@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/test/Library/Developer/Shared/Documentation/DocSets/com.apple.ljhweibo.LJHWeibo.docset
+Time: 2015-01-13 14:27:21 +0000

@@ -11,13 +11,15 @@
 #import "LJHStatus.h"
 #import "LJHUser.h"
 #import "LJHReweetStatusView.h"
+#import "LJHPhoto.h"
+#import "LJHPhotosView.h"
 @interface LJHStatusTopView()
 /** 头像 */
 @property (weak, nonatomic) UIImageView *iconView;
 /** 会员图标 */
 @property (weak, nonatomic) UIImageView *vipView;
 /** 配图 */
-@property (weak, nonatomic) UIImageView *photoView;
+@property (weak, nonatomic) LJHPhotosView *photosView;
 /** 昵称 */
 @property (weak, nonatomic) UILabel *nameLabel;
 /** 时间 */
@@ -32,6 +34,9 @@
 @implementation LJHStatusTopView
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
+        
+        self.userInteractionEnabled = YES;
+        
         //1.设置背景图片
         self.image = [UIImage resizedImageWithName:@"timeline_card_top_background"];
         self.highlightedImage = [UIImage resizedImageWithName:@"timeline_card_top_background_highlighted"];
@@ -48,9 +53,9 @@
         self.vipView = vipView;
         
         /**4.配图 */
-        UIImageView *photoView = [[UIImageView alloc] init];
+        LJHPhotosView *photoView = [[LJHPhotosView alloc] init];
         [self addSubview:photoView];
-        self.photoView = photoView;
+        self.photosView = photoView;
         
         /**5.昵称 */
         UILabel *nameLabel = [[UILabel alloc] init];
@@ -138,14 +143,14 @@
     self.contentLabel.frame = self.statusFrame.contentLabelF;
     
     //8.配图
-    if (status.thumbnail_pic)
+    if (status.pic_urls.count)
     {
-        self.photoView.hidden = NO;
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:status.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
-        self.photoView.frame = self.statusFrame.photoViewF;
+        self.photosView.hidden = NO;
+        self.photosView.frame = self.statusFrame.photosViewF;
+        self.photosView.photos = status.pic_urls;
     }
     else{
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
     }
     
     
