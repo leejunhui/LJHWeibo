@@ -18,3 +18,5 @@ Customize the cellToolBar and fix some bugs.
 Fix some bugs and Begin the work of photo.
 #Day 7 
 Complete the display of the photo of the Weibo.
+#Day 8
+Configure the pull refresh and new Weibo notify.
