@@ -17,27 +17,33 @@
 #define LJHTitleButtonDown 0
 #define LJHTitleButtonUp -1
 @interface LJHHomeViewController()
-@property (strong, nonatomic) NSArray *statuFrames;
+@property (strong, nonatomic) NSMutableArray *statuFrames;
 @end
 
 @implementation LJHHomeViewController
 
-- (NSArray *)statuFrames{
+- (NSMutableArray *)statuFrames{
     if (_statuFrames == nil) {
-        _statuFrames = [NSArray array];
+        _statuFrames = [NSMutableArray array];
     }
     return _statuFrames;
 }
 
 -(void)viewDidLoad{
+    [self setupRefresh];
     [self setupNav];
-    [self setupStatusData];
+//    [self setupStatusData];
 }
 
-/**
- *  加载微博数据
- */
-- (void)setupStatusData{
+- (void)setupRefresh{
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+    [refreshControl beginRefreshing];
+    [self refresh:refreshControl];
+}
+
+- (void)refresh:(UIRefreshControl *)control{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     //说明服务器返回的是json
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -45,7 +51,12 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     LJHAccount *account = [LJHAccountTool account];
     params[@"access_token"] = account.access_token;
-    params[@"count"] = [NSString stringWithFormat:@"%d",10];
+    params[@"count"] = [NSString stringWithFormat:@"%d",5];
+    if (self.statuFrames.count) {
+        LJHStatusFrame *statusFrame = self.statuFrames[0];
+        params[@"since_id"] = statusFrame.status.idstr;
+    }
+
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         //字典数组转模型数组
@@ -55,7 +66,7 @@
         NSMutableArray *statusFrameArray = [NSMutableArray array];
         for (LJHStatus *status in statusArray) {
             
-//            LJHLog(@"%@",[[status.pic_urls lastObject] class]);
+            //            LJHLog(@"%@",[[status.pic_urls lastObject] class]);
             
             LJHStatusFrame *statusFrame = [[LJHStatusFrame alloc] init];
             statusFrame.status = status;
@@ -63,18 +74,63 @@
         }
         
         //赋值
-        self.statuFrames = statusFrameArray;
+        
+        NSMutableArray *tempArray = [NSMutableArray array];
+        [tempArray addObjectsFromArray:statusFrameArray];
+        [tempArray addObjectsFromArray:self.statuFrames];
+        self.statuFrames = tempArray;
         
         [self.tableView reloadData];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        [control endRefreshing];
+        
+        [self showNewStatusCount:statusFrameArray.count];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         LJHLog(@"请求失败 : %@",error);
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [control endRefreshing];
     }];
-
 }
+
+- (void)showNewStatusCount:(int)count{
+    UIButton *btn = [[UIButton alloc] init];
+    [self.navigationController.view insertSubview:btn belowSubview:self.navigationController.navigationBar];
+    
+    btn.userInteractionEnabled = NO;
+    [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[UIImage imageWithName:@"timeline_new_status_background"] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    if (count) {
+        [btn setTitle:[NSString stringWithFormat:@"共有%d条新的微博",count] forState:UIControlStateNormal];
+        
+    }
+    else{
+        [btn setTitle:@"没有新的微博" forState:UIControlStateNormal];
+    }
+    
+    CGFloat btnX = 2;
+    
+    CGFloat btnW = self.view.frame.size.width - 2*btnX;
+    CGFloat btnH = 30;
+    CGFloat btnY = 64 - btnH;
+    btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
+    
+    [UIView animateWithDuration:0.7 animations:^{
+        btn.transform = CGAffineTransformMakeTranslation(0, btnH + 2);
+        
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.7 delay:1.0 options:UIViewAnimationOptionCurveLinear animations:^{
+            btn.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [btn removeFromSuperview];
+        }];
+    }];
+}
+
+
 
 - (void)setupNav{
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_friendsearch" highIcon:@"navigationbar_friendsearch_highlighted" target:self action:@selector(friendSearch)];
@@ -90,7 +146,7 @@
     
     self.tableView.backgroundColor = LJHColor(226, 226, 226);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, LJHStatusTableBorder, 0);
+//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, LJHStatusTableBorder, 0);
 }
 
 - (void)titleButtonClick:(LJHTitleButton *)button{
