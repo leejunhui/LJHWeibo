@@ -32,18 +32,32 @@
 -(void)viewDidLoad{
     [self setupRefresh];
     [self setupNav];
-//    [self setupStatusData];
 }
 
 - (void)setupRefresh{
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:refreshControl];
-    [refreshControl beginRefreshing];
-    [self refresh:refreshControl];
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRefreshing)];
+    [self.tableView headerBeginRefreshing];
+    [self.tableView addFooterWithTarget:self action:@selector(footerRefreshing)];
+    
+    // 设置文字(也可以不设置,默认的文字在MJRefreshConst中修改)
+    self.tableView.headerPullToRefreshText = @"下拉刷新";
+    self.tableView.headerReleaseToRefreshText = @"松开马上刷新";
+    self.tableView.headerRefreshingText = @"正在刷新中";
+    
+    self.tableView.footerPullToRefreshText = @"下拉刷新";
+    self.tableView.footerReleaseToRefreshText = @"松开加载更多";
+    self.tableView.footerRefreshingText = @"正在刷新中";
 }
 
-- (void)refresh:(UIRefreshControl *)control{
+- (void)headerRefreshing{
+    [self loadNewData];
+}
+
+- (void)footerRefreshing{
+    [self loadMoreData];
+}
+
+- (void)loadNewData{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     //说明服务器返回的是json
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -56,7 +70,52 @@
         LJHStatusFrame *statusFrame = self.statuFrames[0];
         params[@"since_id"] = statusFrame.status.idstr;
     }
+    
+    [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //字典数组转模型数组
+        NSArray *statusArray = [LJHStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        //创建statusFrame模型对象
+        NSMutableArray *statusFrameArray = [NSMutableArray array];
+        for (LJHStatus *status in statusArray) {
+            LJHStatusFrame *statusFrame = [[LJHStatusFrame alloc] init];
+            statusFrame.status = status;
+            [statusFrameArray addObject:statusFrame];
+        }
+        
+        //赋值
+        NSMutableArray *tempArray = [NSMutableArray array];
+        [tempArray addObjectsFromArray:statusFrameArray];
+        [tempArray addObjectsFromArray:self.statuFrames];
+        self.statuFrames = tempArray;
+        
+        [self.tableView reloadData];
+        
+        [self.tableView headerEndRefreshing];
+        
+        [self showNewStatusCount:(int)statusFrameArray.count];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        LJHLog(@"请求失败 : %@",error);
+        [self.tableView headerEndRefreshing];
+    }];
+}
 
+- (void)loadMoreData{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //说明服务器返回的是json
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    LJHAccount *account = [LJHAccountTool account];
+    params[@"access_token"] = account.access_token;
+    params[@"count"] = [NSString stringWithFormat:@"%d",5];
+    
+    if (self.statuFrames.count) {
+        LJHStatusFrame *statusFrame = [self.statuFrames lastObject];
+        long long  max_id = [statusFrame.status.idstr longLongValue] - 1;
+        params[@"max_id"] = @(max_id);
+    }
+    
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         //字典数组转模型数组
@@ -65,35 +124,23 @@
         //创建statusFrame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
         for (LJHStatus *status in statusArray) {
-            
-            //            LJHLog(@"%@",[[status.pic_urls lastObject] class]);
-            
             LJHStatusFrame *statusFrame = [[LJHStatusFrame alloc] init];
             statusFrame.status = status;
             [statusFrameArray addObject:statusFrame];
         }
         
-        //赋值
-        
-        NSMutableArray *tempArray = [NSMutableArray array];
-        [tempArray addObjectsFromArray:statusFrameArray];
-        [tempArray addObjectsFromArray:self.statuFrames];
-        self.statuFrames = tempArray;
+        [self.statuFrames addObjectsFromArray:statusFrameArray];
         
         [self.tableView reloadData];
         
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
-        [control endRefreshing];
-        
-        [self showNewStatusCount:statusFrameArray.count];
+        [self.tableView footerEndRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         LJHLog(@"请求失败 : %@",error);
-        
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [control endRefreshing];
+        [self.tableView footerEndRefreshing];
     }];
 }
+
+
 
 - (void)showNewStatusCount:(int)count{
     UIButton *btn = [[UIButton alloc] init];

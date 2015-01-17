@@ -58,9 +58,16 @@ EEE MMM dd HH:mm:ss Z yyyy
  *  为了性能优化处理,这里采取重写setter方法，只需在字典转模型的过程中一次就可获得source
  */
 - (void)setSource:(NSString *)source{
-    int startLoc = (int)[source rangeOfString:@">"].location + 1;
-    int length = (int)[source rangeOfString:@"</"].location - startLoc;
-    _source =  [NSString stringWithFormat:@"来自%@",[source substringWithRange:NSMakeRange(startLoc, length)]];
+    if ([source isEqualToString:@""]) {
+        _source = @"";
+    }
+    else
+    {
+        int startLoc = (int)[source rangeOfString:@">"].location + 1;
+        int length = (int)[source rangeOfString:@"</"].location - startLoc;
+        _source =  [NSString stringWithFormat:@"来自%@",[source substringWithRange:NSMakeRange(startLoc, length)]];
+    }
+
 }
 
 
