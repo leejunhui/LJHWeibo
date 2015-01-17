@@ -29,6 +29,10 @@
  *  账号的过期时间
  */
 @property (strong, nonatomic) NSDate *expiresTime;
+/**
+ *  用户的名称
+ */
+@property (copy, nonatomic) NSString *name;
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 + (instancetype)accountWithDict:(NSDictionary *)dict;

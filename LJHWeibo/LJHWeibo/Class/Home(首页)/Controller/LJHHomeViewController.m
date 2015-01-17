@@ -17,6 +17,7 @@
 #define LJHTitleButtonDown 0
 #define LJHTitleButtonUp -1
 @interface LJHHomeViewController()
+@property (nonatomic, weak) LJHTitleButton *titleButton;
 @property (strong, nonatomic) NSMutableArray *statuFrames;
 @end
 
@@ -30,8 +31,37 @@
 }
 
 -(void)viewDidLoad{
+    [self setupUserData];
     [self setupRefresh];
     [self setupNav];
+}
+
+/**
+ *  读取用户信息
+ */
+- (void)setupUserData{
+    // 1.创建请求管理对象
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    // 2.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [LJHAccountTool account].access_token;
+    params[@"uid"] = @([LJHAccountTool account].uid);
+    
+    // 3.发送请求
+    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         // 字典转模型
+         LJHUser *user = [LJHUser objectWithKeyValues:responseObject];
+         // 设置标题文字
+         [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+         // 保存昵称
+         LJHAccount *account = [LJHAccountTool account];
+         account.name = user.name;
+         [LJHAccountTool saveAccount:account];
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
+     }];
 }
 
 - (void)setupRefresh{
@@ -140,8 +170,6 @@
     }];
 }
 
-
-
 - (void)showNewStatusCount:(int)count{
     UIButton *btn = [[UIButton alloc] init];
     [self.navigationController.view insertSubview:btn belowSubview:self.navigationController.navigationBar];
@@ -177,23 +205,30 @@
     }];
 }
 
-
-
 - (void)setupNav{
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_friendsearch" highIcon:@"navigationbar_friendsearch_highlighted" target:self action:@selector(friendSearch)];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_pop" highIcon:@"navigationbar_pop_highlighted" target:self action:@selector(popClick)];
     
     LJHTitleButton *titleButton = [LJHTitleButton titleButton];
+    self.titleButton = titleButton;
     titleButton.tag = LJHTitleButtonDown;
     [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [titleButton setTitle:@"哈哈哈" forState:UIControlStateNormal];
     titleButton.frame = CGRectMake(0, 0, 120, 40);
+    LJHAccount *account = [LJHAccountTool account];
+    if (account) {
+        [titleButton setTitle:account.name forState:UIControlStateNormal];
+    }
+    else{
+        [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    }
+    
+    
     [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     self.navigationItem.titleView = titleButton;
     
     self.tableView.backgroundColor = LJHColor(226, 226, 226);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, LJHStatusTableBorder, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, LJHStatusTableBorder, 0);
 }
 
 - (void)titleButtonClick:(LJHTitleButton *)button{
@@ -232,8 +267,6 @@
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
-
-
 #pragma mark - UITableView DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.statuFrames.count;
@@ -250,7 +283,6 @@
     LJHStatusFrame *statusFrame = self.statuFrames[indexPath.row];
     return statusFrame.cellHeight;
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
