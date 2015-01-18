@@ -31,7 +31,7 @@
 }
 
 - (void)photoTap:(UITapGestureRecognizer *)recognizer{
-    int count = self.photos.count;
+    int count = (int)self.photos.count;
     
     // 1.封装图片数据
     NSMutableArray *myphotos = [NSMutableArray arrayWithCapacity:count];

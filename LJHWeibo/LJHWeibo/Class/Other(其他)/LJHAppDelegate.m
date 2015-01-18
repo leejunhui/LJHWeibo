@@ -35,5 +35,13 @@
     return YES;
 }
 
+/**
+ *  当app收到内存警告时，清理图片缓存
+ */
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    [[SDWebImageManager sharedManager] cancelAll];
+    [[SDWebImageManager sharedManager].imageCache clearMemory];;
+}
+
 
 @end
