@@ -20,3 +20,5 @@ Fix some bugs and Begin the work of photo.
 Complete the display of the photo of the Weibo.
 #Day 8
 Configure the pull refresh and new Weibo notify.
+#Day 9
+Complete the refresh and the user name bug.
