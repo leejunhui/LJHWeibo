@@ -111,7 +111,7 @@
     self.nameLabel.frame = self.statusFrame.nameLabelF;
     
     //4.会员
-    if (user.mbtype) {
+    if (user.mbtype > 2) {
         self.vipView.hidden = NO;
         NSString *img = [NSString stringWithFormat:@"common_icon_membership_level%d",user.mbrank];
         self.vipView.image = [UIImage imageWithName:img];

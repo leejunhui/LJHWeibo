@@ -54,6 +54,7 @@
         int loc = (int)range.location + (int)range.length;
         NSString *code = [urlStr substringFromIndex:loc];
         [self accessTokenWithCode:code];
+        return NO;
     }
     
     return YES;

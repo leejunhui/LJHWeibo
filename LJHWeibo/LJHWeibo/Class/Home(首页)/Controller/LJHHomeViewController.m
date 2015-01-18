@@ -213,7 +213,7 @@
     self.titleButton = titleButton;
     titleButton.tag = LJHTitleButtonDown;
     [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    titleButton.frame = CGRectMake(0, 0, 120, 40);
+    titleButton.frame = CGRectMake(0, 0, 0, 40);
     LJHAccount *account = [LJHAccountTool account];
     if (account) {
         [titleButton setTitle:account.name forState:UIControlStateNormal];

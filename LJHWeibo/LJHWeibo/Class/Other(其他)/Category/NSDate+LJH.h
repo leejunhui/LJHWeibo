@@ -25,4 +25,8 @@
  *  获得与当前时间的差距
  */
 - (NSDateComponents *)deltaWithNow;
+/**
+ *  获取年月日格式的日期
+ */
+- (NSDate *)dateWithYMD;
 @end

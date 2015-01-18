@@ -10,8 +10,6 @@
 #import "NSDate+LJH.h"
 #import "LJHPhoto.h"
 @implementation LJHStatus
-
-
 - (NSDictionary *)objectClassInArray{
     return @{@"pic_urls": [LJHPhoto class]};
 }
