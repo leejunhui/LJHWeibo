@@ -7,7 +7,7 @@
 //  导航栏标题按钮
 
 #import "LJHTitleButton.h"
-#define LJHTitleButtonImageW 20
+
 @implementation LJHTitleButton
 +(instancetype)titleButton{
     return [[LJHTitleButton alloc] init];
@@ -44,8 +44,8 @@
 
 - (void)setTitle:(NSString *)title forState:(UIControlState)state{
     // 根据title计算自己的宽度
-    CGFloat titleW = [title sizeWithFont:self.titleLabel.font].width;
-    
+    CGFloat titleW = [TextSizeTool sizeWithText:title font:self.titleLabel.font maxSize:LJHStatusMaxSize].width;
+//    CGFloat titleW = [title sizeWithFont:self.titleLabel.font].width;
     CGRect frame = self.frame;
     frame.size.width = titleW + LJHTitleButtonImageW + 5;
     self.frame = frame;

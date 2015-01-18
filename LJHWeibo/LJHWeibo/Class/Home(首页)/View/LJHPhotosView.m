@@ -11,9 +11,7 @@
 #import "LJHPhotoView.h"
 #import "MJPhoto.h"
 #import "MJPhotoBrowser.h"
-#define IWPhotoW 70
-#define IWPhotoH 70
-#define IWPhotoMargin 10
+
 @implementation LJHPhotosView
 
 - (instancetype)initWithFrame:(CGRect)frame{

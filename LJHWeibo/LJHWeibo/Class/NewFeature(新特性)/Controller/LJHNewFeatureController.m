@@ -8,7 +8,6 @@
 
 #import "LJHNewfeatureController.h"
 #import "LJHTabBarController.h"
-#define LJHNewfeatureControllerImageCount 3
 @interface LJHNewFeatureController()<UIScrollViewDelegate>
 @property (strong, nonatomic) UIPageControl *pageControl;
 @end

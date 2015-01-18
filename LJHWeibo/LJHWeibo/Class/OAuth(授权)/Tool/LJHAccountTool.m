@@ -8,7 +8,7 @@
 
 #import "LJHAccountTool.h"
 #import "LJHAccount.h"
-#define LJHAccountFile [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"account.data"]
+
 
 @implementation LJHAccountTool
 + (void)saveAccount:(LJHAccount *)account{

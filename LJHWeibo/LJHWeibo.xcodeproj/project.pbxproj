@@ -167,8 +167,8 @@
 		2D4F67021A604A1C00A3D805 /* LJHSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHSearchBar.m; sourceTree = "<group>"; };
 		2D4F67041A604D7900A3D805 /* LJHOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHOAuthViewController.h; sourceTree = "<group>"; };
 		2D4F67051A604D7900A3D805 /* LJHOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHOAuthViewController.m; sourceTree = "<group>"; };
-		2D4F67071A604D8700A3D805 /* LJHAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHAccount.h; sourceTree = "<group>"; };
-		2D4F67081A604D8700A3D805 /* LJHAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHAccount.m; sourceTree = "<group>"; };
+		2D4F67071A604D8700A3D805 /* LJHAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJHAccount.h; path = ../View/LJHAccount.h; sourceTree = "<group>"; };
+		2D4F67081A604D8700A3D805 /* LJHAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJHAccount.m; path = ../View/LJHAccount.m; sourceTree = "<group>"; };
 		2D4F670B1A604DA400A3D805 /* LJHAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHAccountTool.h; sourceTree = "<group>"; };
 		2D4F670C1A604DA400A3D805 /* LJHAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHAccountTool.m; sourceTree = "<group>"; };
 		2D4F670E1A604DAF00A3D805 /* LJHWeiboTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHWeiboTool.h; sourceTree = "<group>"; };
@@ -215,6 +215,7 @@
 		2DFBC5931A6A540E0057943D /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		2DFBC5941A6A540E0057943D /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		2DFBC5951A6A540E0057943D /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		2DFBC59E1A6BFD380057943D /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		ED20194B8702B13DD13FE661 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F77902A97DC304D3EF16BCC0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -307,13 +308,6 @@
 			children = (
 				2D4F66F31A60392B00A3D805 /* TextSizeTool.h */,
 				2D4F66F41A60392B00A3D805 /* TextSizeTool.m */,
-			);
-			path = Tool;
-			sourceTree = "<group>";
-		};
-		2D4F66FA1A60455B00A3D805 /* Tool */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -449,7 +443,6 @@
 		2DE5509B1A5FFA2100DBCB15 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
-				2D4F66FA1A60455B00A3D805 /* Tool */,
 				2DE5509C1A5FFA2100DBCB15 /* Controller */,
 				2DE5509D1A5FFA2100DBCB15 /* Model */,
 				2DE5509E1A5FFA2100DBCB15 /* View */,
@@ -649,7 +642,6 @@
 				2D4F670A1A604D9900A3D805 /* Tool */,
 				2DE550B01A5FFA2100DBCB15 /* Controller */,
 				2DE550B11A5FFA2100DBCB15 /* Model */,
-				2DE550B21A5FFA2100DBCB15 /* View */,
 			);
 			path = "OAuth(授权)";
 			sourceTree = "<group>";
@@ -666,17 +658,10 @@
 		2DE550B11A5FFA2100DBCB15 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2DE550B21A5FFA2100DBCB15 /* View */ = {
-			isa = PBXGroup;
-			children = (
 				2D4F67071A604D8700A3D805 /* LJHAccount.h */,
 				2D4F67081A604D8700A3D805 /* LJHAccount.m */,
 			);
-			path = View;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2DE550B31A5FFA2100DBCB15 /* Other(其他) */ = {
@@ -690,6 +675,7 @@
 				2DE550B81A5FFA2100DBCB15 /* main.m */,
 				2D4F670E1A604DAF00A3D805 /* LJHWeiboTool.h */,
 				2D4F670F1A604DAF00A3D805 /* LJHWeiboTool.m */,
+				2DFBC59E1A6BFD380057943D /* Common.h */,
 			);
 			path = "Other(其他)";
 			sourceTree = "<group>";

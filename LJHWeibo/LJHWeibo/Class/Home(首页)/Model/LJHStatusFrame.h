@@ -7,23 +7,7 @@
 //  一个cell对应一个LJHStatusFrame对象
 
 #import <Foundation/Foundation.h>
-/**cell的边框宽度 */
-#define LJHStatusCellBorder 10
-/**昵称字体 */
-#define LJHStatusNameFont [UIFont systemFontOfSize:15]
-/**被转发微博作者字体 */
-#define LJHRetweetStatusNameFont LJHStatusNameFont
-/**时间字体 */
-#define LJHStatusTimeFont [UIFont systemFontOfSize:11]
-/**来源字体 */
-#define LJHStatusSourceFont LJHStatusTimeFont
-/**正文字体 */
-#define LJHStatusContentFont [UIFont systemFontOfSize:15]
-/**被转发正文字体 */
-#define LJHRetweetStatusContentFont LJHStatusContentFont
 
-/** 表格的边框宽度 */
-#define LJHStatusTableBorder 5
 
 @class LJHStatus;
 @interface LJHStatusFrame : NSObject

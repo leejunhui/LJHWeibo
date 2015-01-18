@@ -8,7 +8,7 @@
 
 #import "LJHTabBarButton.h"
 #import "LJHBadgeButton.h"
-#define LJHTabBarButtonImageRatio 0.7
+
 @interface LJHTabBarButton()
 @property (weak, nonatomic) LJHBadgeButton *badgeButton;
 @end
