@@ -10,13 +10,13 @@
 #define LJHWeibo_Common_h
 
 #import <AFNetworking.h>
-#import <MBProgressHUD.h>
 #import "UIImage+LJH.h"
 #import "UIBarButtonItem+LJH.h"
 #import "TextSizeTool.h"
 #import <UIImageView+WebCache.h>
 #import "MJExtension.h"
 #import "MJRefresh.h"
+#import "MBProgressHUD+MJ.h"
 
 //判断是否是iOS7
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)

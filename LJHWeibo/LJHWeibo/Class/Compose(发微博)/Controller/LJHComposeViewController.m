@@ -9,9 +9,14 @@
 #import "LJHComposeViewController.h"
 #import "LJHTextView.h"
 #import "LJHComposeToolBar.h"
+#import "LJHAccount.h"
+#import "LJHAccountTool.h"
+#import "LJHComposeImageViews.h"
 @interface LJHComposeViewController()<UITextViewDelegate,LJHComposeToolbarDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) UITextView *textView;
 @property (nonatomic, weak) LJHComposeToolBar *toolbar;
+@property (nonatomic, weak) LJHComposeImageViews *imageViews;
+
 @end
 @implementation LJHComposeViewController
 
@@ -19,6 +24,19 @@
     [self setupNav];
     [self setupTextView];
     [self setupToolBar];
+    // 添加imageView
+    [self setupImageViews];
+}
+
+/**
+ *  添加imageView
+ */
+- (void)setupImageViews
+{
+    LJHComposeImageViews *imageViews = [[LJHComposeImageViews alloc] init];
+    imageViews.frame = CGRectMake(0, 80, self.view.frame.size.width,self.view.frame.size.height);
+    [self.textView addSubview:imageViews];
+    self.imageViews = imageViews;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -26,6 +44,8 @@
 }
 
 - (void)setupNav{
+    self.title = @"发微博";
+    
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
@@ -138,6 +158,20 @@
     [self presentViewController:ipc animated:YES completion:nil];
 }
 
+#pragma mark - 图片选择控制器的代理
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // 1.销毁picker控制器
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    // 2.去的图片
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [self.imageViews addImage:image];
+//    self.imageView.image = image;
+    
+    NSLog(@"%@", info);
+}
+
 - (void)textChange{
 //    NSLog(@"change! %@",self.textView.text);
     self.navigationItem.rightBarButtonItem.enabled = !(self.textView.text.length == 0);
@@ -152,7 +186,29 @@
 }
 
 - (void)send{
+    // 1.创建请求管理对象
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
+    // 2.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"status"] = self.textView.text;
+    params[@"access_token"] = [LJHAccountTool account].access_token;
+    
+    // 3.发送请求
+    [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          [MBProgressHUD showSuccess:@"发送成功"];
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          [MBProgressHUD showError:@"发送失败"];
+      }];
+    
+    // 4.关闭控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
 }
 
 @end

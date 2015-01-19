@@ -33,15 +33,15 @@
 
 #pragma mark - UIWebView Delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView{
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showMessage:@"加载中..."];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideHUD];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideHUD];
 }
 
 
@@ -108,12 +108,10 @@
         [LJHWeiboTool chooseRootController];
         
         LJHLog(@"请求成功 : %@",responseObject);
-        
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUD];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         LJHLog(@"请求失败 : %@",error);
-        
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUD];
     }];
 }
 
