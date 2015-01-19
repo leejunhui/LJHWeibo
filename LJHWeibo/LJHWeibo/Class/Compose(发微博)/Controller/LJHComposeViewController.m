@@ -168,8 +168,6 @@
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     [self.imageViews addImage:image];
 //    self.imageView.image = image;
-    
-    NSLog(@"%@", info);
 }
 
 - (void)textChange{
@@ -185,7 +183,39 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)send{
+/**
+ *  发送带有配图的微博
+ */
+- (void)sendStatusWithImage{
+    // 1.创建请求管理对象
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    // 2.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"status"] = self.textView.text;
+    params[@"access_token"] = [LJHAccountTool account].access_token;
+    
+    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        for (int index = 0; index < self.imageViews.totalImages.count; index ++) {
+            UIImage *image = self.imageViews.totalImages[index];
+            NSData *data = UIImageJPEGRepresentation(image, 0.0000001);
+            
+        
+        
+            [formData appendPartWithFileData:data name:@"pic" fileName:@"" mimeType:@"image/jpeg"];
+            
+        }
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD showSuccess:@"发送成功"];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD showError:@"发送失败"];
+    }];
+}
+
+/**
+ *  发送只有文字的微博
+ */
+- (void)sendStatusWithoutImage{
     // 1.创建请求管理对象
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
@@ -201,6 +231,15 @@
       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
           [MBProgressHUD showError:@"发送失败"];
       }];
+}
+
+- (void)send{
+    if (self.imageViews.totalImages.count) {
+        [self sendStatusWithImage];
+    }
+    else {
+        [self sendStatusWithoutImage];
+    }
     
     // 4.关闭控制器
     [self dismissViewControllerAnimated:YES completion:nil];
