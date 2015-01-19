@@ -31,6 +31,8 @@
 
 #define LJHNotificationCenter [NSNotificationCenter defaultCenter]
 
+#define kMaxImgCount 9
+
 //授权的appID
 #define OAuthAppID @"3269275577"
 //授权的appKey

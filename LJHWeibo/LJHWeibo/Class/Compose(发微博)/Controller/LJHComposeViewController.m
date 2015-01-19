@@ -12,7 +12,8 @@
 #import "LJHAccount.h"
 #import "LJHAccountTool.h"
 #import "LJHComposeImageViews.h"
-@interface LJHComposeViewController()<UITextViewDelegate,LJHComposeToolbarDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+#import <ZYQAssetPickerController.h>
+@interface LJHComposeViewController()<UITextViewDelegate,LJHComposeToolbarDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ZYQAssetPickerControllerDelegate,LJHComposeImageViewsDelegate>
 @property (weak, nonatomic) UITextView *textView;
 @property (nonatomic, weak) LJHComposeToolBar *toolbar;
 @property (nonatomic, weak) LJHComposeImageViews *imageViews;
@@ -34,6 +35,7 @@
 - (void)setupImageViews
 {
     LJHComposeImageViews *imageViews = [[LJHComposeImageViews alloc] init];
+    imageViews.delegate = self;
     imageViews.frame = CGRectMake(0, 80, self.view.frame.size.width,self.view.frame.size.height);
     [self.textView addSubview:imageViews];
     self.imageViews = imageViews;
@@ -141,10 +143,25 @@
  */
 - (void)openCamera
 {
-    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
-    ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
-    ipc.delegate = self;
-    [self presentViewController:ipc animated:YES completion:nil];
+    if (self.imageViews.totalImages.count < kMaxImgCount) {
+        ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
+        picker.maximumNumberOfSelection = kMaxImgCount;
+        picker.assetsFilter = [ALAssetsFilter allPhotos];
+        picker.showEmptyGroups=NO;
+        picker.delegate= self;
+        picker.selectionFilter = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+            if ([[(ALAsset*)evaluatedObject valueForProperty:ALAssetPropertyType] isEqual:ALAssetTypeVideo]) {
+                NSTimeInterval duration = [[(ALAsset*)evaluatedObject valueForProperty:ALAssetPropertyDuration] doubleValue];
+                return duration >= 5;
+            } else {
+                return YES;
+            }
+        }];
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
+    else{
+        [MBProgressHUD showError:@"最多9张照片!"];
+    }
 }
 
 /**
@@ -152,11 +169,37 @@
  */
 - (void)openPhotoLibrary
 {
-    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
-    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    ipc.delegate = self;
-    [self presentViewController:ipc animated:YES completion:nil];
+    if (self.imageViews.totalImages.count < kMaxImgCount) {
+        ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc] init];
+        picker.maximumNumberOfSelection = kMaxImgCount;
+        picker.assetsFilter = [ALAssetsFilter allPhotos];
+        picker.showEmptyGroups=NO;
+        picker.delegate= self;
+        picker.selectionFilter = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+            if ([[(ALAsset*)evaluatedObject valueForProperty:ALAssetPropertyType] isEqual:ALAssetTypeVideo]) {
+                NSTimeInterval duration = [[(ALAsset*)evaluatedObject valueForProperty:ALAssetPropertyDuration] doubleValue];
+                return duration >= 5;
+            } else {
+                return YES;
+            }
+        }];
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
+    else{
+        [MBProgressHUD showError:@"最多9张照片!"];
+    }
 }
+
+#pragma mark -
+-(void)assetPickerController:(ZYQAssetPickerController *)picker didFinishPickingAssets:(NSArray *)assets{
+    for (int index = 0; index < assets.count; index ++) {
+        ALAsset *asset = assets[index];
+        UIImage *image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
+            [self.imageViews addImage:image];
+        [self.view endEditing:YES]; 
+    }
+}
+
 
 #pragma mark - 图片选择控制器的代理
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -167,7 +210,7 @@
     // 2.去的图片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     [self.imageViews addImage:image];
-//    self.imageView.image = image;
+    [self.view endEditing:YES];
 }
 
 - (void)textChange{
@@ -243,6 +286,11 @@
     
     // 4.关闭控制器
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - LJHComposeImageViewsDelegate
+- (void)LJHComposeImageViewsDidTappedPlusButton{
+    [self openPhotoLibrary];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

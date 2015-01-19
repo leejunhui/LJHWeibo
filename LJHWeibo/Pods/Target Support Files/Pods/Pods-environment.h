@@ -60,3 +60,9 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 1
 
+// ZYQAssetPickerController
+#define COCOAPODS_POD_AVAILABLE_ZYQAssetPickerController
+#define COCOAPODS_VERSION_MAJOR_ZYQAssetPickerController 1
+#define COCOAPODS_VERSION_MINOR_ZYQAssetPickerController 0
+#define COCOAPODS_VERSION_PATCH_ZYQAssetPickerController 0
+

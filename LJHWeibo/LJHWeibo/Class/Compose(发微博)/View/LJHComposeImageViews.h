@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class LJHComposeImageViews;
+@protocol LJHComposeImageViewsDelegate <NSObject>
+
+@optional
+- (void)LJHComposeImageViewsDidTappedPlusButton;
+@end
+
 @interface LJHComposeImageViews : UIView
 /**
  *  添加照片
@@ -18,4 +25,6 @@
  *  返回所有的图片
  */
 - (NSArray *)totalImages;
+
+@property (weak, nonatomic)id<LJHComposeImageViewsDelegate>delegate;
 @end
