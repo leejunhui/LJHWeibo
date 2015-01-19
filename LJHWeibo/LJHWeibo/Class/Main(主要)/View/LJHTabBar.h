@@ -10,6 +10,7 @@
 @class LJHTabBar;
 @protocol LJHTabBarDelegate<NSObject>
 - (void)LJHTabBar:(LJHTabBar *)tabBar DidSelectTabBarButtonFrom:(int)from to:(int)to;
+- (void)LJHTabBarDidClickedPlusButton:(LJHTabBar *)tabBar;
 @end
 @interface LJHTabBar : UIView
 - (void)addTabBarItem:(UITabBarItem *)item;

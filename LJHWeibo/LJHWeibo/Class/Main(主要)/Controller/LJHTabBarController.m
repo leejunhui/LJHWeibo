@@ -13,6 +13,7 @@
 #import "LJHMeViewController.h"
 #import "LJHTabBar.h"
 #import "LJHNavigationController.h"
+#import "LJHComposeViewController.h"
 
 @interface LJHTabBarController()<LJHTabBarDelegate>
 @property (weak, nonatomic) LJHTabBar *customTabBar;
@@ -98,6 +99,12 @@
 #pragma mark - LJHTabBarDelegate
 - (void)LJHTabBar:(LJHTabBar *)tabBar DidSelectTabBarButtonFrom:(int)from to:(int)to{
     self.selectedIndex = to;
+}
+
+- (void)LJHTabBarDidClickedPlusButton:(LJHTabBar *)tabBar{
+    LJHComposeViewController *composeVC = [[LJHComposeViewController alloc] init];
+    LJHNavigationController *nav = [[LJHNavigationController alloc] initWithRootViewController:composeVC];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

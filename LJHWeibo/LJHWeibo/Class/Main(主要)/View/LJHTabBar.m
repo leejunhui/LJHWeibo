@@ -29,7 +29,6 @@
             self.backgroundColor = [UIColor colorWithPatternImage:[UIImage resizedImageWithName:@"tabbar_background"]];
         }
         
-        
         /**
          *  初始化中间的加号按钮
          */
@@ -39,10 +38,17 @@
         [plusButton setImage:[UIImage imageWithName:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
         [plusButton setImage:[UIImage imageWithName:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
         plusButton.frame = CGRectMake(0, 0, plusButton.currentBackgroundImage.size.width, plusButton.currentBackgroundImage.size.height + 10);
+        [plusButton addTarget:self action:@selector(plusButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:plusButton];
         self.plusButton = plusButton;
     }
     return self;
+}
+
+- (void)plusButtonClick{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(LJHTabBarDidClickedPlusButton:)]) {
+        [self.delegate LJHTabBarDidClickedPlusButton:self];
+    }
 }
 
 

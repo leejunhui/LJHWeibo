@@ -26,6 +26,10 @@
     attrs[NSShadowAttributeName]          = shadow;
     [barButton setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [barButton setTitleTextAttributes:attrs forState:UIControlStateHighlighted];
+
+    NSMutableDictionary *disabledAttrs = [NSMutableDictionary dictionary];
+    disabledAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    [barButton setTitleTextAttributes:disabledAttrs forState:UIControlStateDisabled];
 }
 
 + (void)setupNavTheme{

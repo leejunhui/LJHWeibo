@@ -74,6 +74,8 @@
 		2DFBC59B1A6A540E0057943D /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFBC5911A6A540E0057943D /* UIScrollView+MJExtension.m */; };
 		2DFBC59C1A6A540E0057943D /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFBC5931A6A540E0057943D /* UIScrollView+MJRefresh.m */; };
 		2DFBC59D1A6A540E0057943D /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFBC5951A6A540E0057943D /* UIView+MJExtension.m */; };
+		2DFBC5A51A6C04180057943D /* LJHComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFBC5A41A6C04180057943D /* LJHComposeViewController.m */; };
+		2DFBC5A81A6C06A90057943D /* LJHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFBC5A71A6C06A90057943D /* LJHTextView.m */; };
 		8757AB31F6A1BDA687F7667F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06231EAFF7773C619AC300E6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -216,6 +218,10 @@
 		2DFBC5941A6A540E0057943D /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		2DFBC5951A6A540E0057943D /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		2DFBC59E1A6BFD380057943D /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		2DFBC5A31A6C04180057943D /* LJHComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHComposeViewController.h; sourceTree = "<group>"; };
+		2DFBC5A41A6C04180057943D /* LJHComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHComposeViewController.m; sourceTree = "<group>"; };
+		2DFBC5A61A6C06A90057943D /* LJHTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHTextView.h; sourceTree = "<group>"; };
+		2DFBC5A71A6C06A90057943D /* LJHTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHTextView.m; sourceTree = "<group>"; };
 		ED20194B8702B13DD13FE661 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F77902A97DC304D3EF16BCC0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -393,6 +399,7 @@
 		2DE550961A5FFA2100DBCB15 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				2DFBC59F1A6C03EE0057943D /* Compose(发微博) */,
 				2DE550971A5FFA2100DBCB15 /* Discover(广场) */,
 				2DE5509B1A5FFA2100DBCB15 /* Home(首页) */,
 				2DE5509F1A5FFA2100DBCB15 /* Main(主要) */,
@@ -716,6 +723,41 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
+		2DFBC59F1A6C03EE0057943D /* Compose(发微博) */ = {
+			isa = PBXGroup;
+			children = (
+				2DFBC5A01A6C03EE0057943D /* Controller */,
+				2DFBC5A11A6C03EE0057943D /* Model */,
+				2DFBC5A21A6C03EE0057943D /* View */,
+			);
+			path = "Compose(发微博)";
+			sourceTree = "<group>";
+		};
+		2DFBC5A01A6C03EE0057943D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2DFBC5A31A6C04180057943D /* LJHComposeViewController.h */,
+				2DFBC5A41A6C04180057943D /* LJHComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2DFBC5A11A6C03EE0057943D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2DFBC5A21A6C03EE0057943D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DFBC5A61A6C06A90057943D /* LJHTextView.h */,
+				2DFBC5A71A6C06A90057943D /* LJHTextView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		559CE99EEE52DB2E55F3E424 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,6 +914,7 @@
 				2D4F67001A60466A00A3D805 /* LJHTitleButton.m in Sources */,
 				2D4F67031A604A1C00A3D805 /* LJHSearchBar.m in Sources */,
 				2DD6AA881A6271D5001FF559 /* LJHStatusFrame.m in Sources */,
+				2DFBC5A81A6C06A90057943D /* LJHTextView.m in Sources */,
 				2D28C3541A67B55D0038587F /* MJPhotoLoadingView.m in Sources */,
 				2D4F66DD1A6004FB00A3D805 /* LJHHomeViewController.m in Sources */,
 				2D4F66E31A60052600A3D805 /* LJHDiscoverController.m in Sources */,
@@ -890,6 +933,7 @@
 				2D4F670D1A604DA400A3D805 /* LJHAccountTool.m in Sources */,
 				2DE550BA1A5FFA2100DBCB15 /* main.m in Sources */,
 				2DFBC59D1A6A540E0057943D /* UIView+MJExtension.m in Sources */,
+				2DFBC5A51A6C04180057943D /* LJHComposeViewController.m in Sources */,
 				2D4F66F91A603DBE00A3D805 /* LJHNavigationController.m in Sources */,
 				2DFBC59C1A6A540E0057943D /* UIScrollView+MJRefresh.m in Sources */,
 				2DFBC5971A6A540E0057943D /* MJRefreshBaseView.m in Sources */,
