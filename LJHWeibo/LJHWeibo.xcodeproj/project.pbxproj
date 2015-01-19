@@ -50,6 +50,7 @@
 		2D4F670D1A604DA400A3D805 /* LJHAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F670C1A604DA400A3D805 /* LJHAccountTool.m */; };
 		2D4F67101A604DAF00A3D805 /* LJHWeiboTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F670F1A604DAF00A3D805 /* LJHWeiboTool.m */; };
 		2D4F67131A604E4A00A3D805 /* LJHNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F67121A604E4A00A3D805 /* LJHNewFeatureController.m */; };
+		2D56426A1A6CB2FB00DC13B9 /* LJHComposeToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5642691A6CB2FB00DC13B9 /* LJHComposeToolBar.m */; };
 		2D9D32001A62B1E700CCA7D5 /* NSDate+LJH.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D31FF1A62B1E700CCA7D5 /* NSDate+LJH.m */; };
 		2D9D32031A62BCCF00CCA7D5 /* LJHStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D32021A62BCCF00CCA7D5 /* LJHStatusToolBar.m */; };
 		2DD6AA881A6271D5001FF559 /* LJHStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6AA871A6271D5001FF559 /* LJHStatusFrame.m */; };
@@ -177,6 +178,8 @@
 		2D4F670F1A604DAF00A3D805 /* LJHWeiboTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHWeiboTool.m; sourceTree = "<group>"; };
 		2D4F67111A604E4A00A3D805 /* LJHNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHNewFeatureController.h; sourceTree = "<group>"; };
 		2D4F67121A604E4A00A3D805 /* LJHNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHNewFeatureController.m; sourceTree = "<group>"; };
+		2D5642681A6CB2FB00DC13B9 /* LJHComposeToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHComposeToolBar.h; sourceTree = "<group>"; };
+		2D5642691A6CB2FB00DC13B9 /* LJHComposeToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHComposeToolBar.m; sourceTree = "<group>"; };
 		2D9D31FE1A62B1E700CCA7D5 /* NSDate+LJH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LJH.h"; sourceTree = "<group>"; };
 		2D9D31FF1A62B1E700CCA7D5 /* NSDate+LJH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LJH.m"; sourceTree = "<group>"; };
 		2D9D32011A62BCCF00CCA7D5 /* LJHStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusToolBar.h; sourceTree = "<group>"; };
@@ -754,6 +757,8 @@
 			children = (
 				2DFBC5A61A6C06A90057943D /* LJHTextView.h */,
 				2DFBC5A71A6C06A90057943D /* LJHTextView.m */,
+				2D5642681A6CB2FB00DC13B9 /* LJHComposeToolBar.h */,
+				2D5642691A6CB2FB00DC13B9 /* LJHComposeToolBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -939,6 +944,7 @@
 				2DFBC5971A6A540E0057943D /* MJRefreshBaseView.m in Sources */,
 				2D023F0C1A64112600E4215B /* LJHReweetStatusView.m in Sources */,
 				2D4F66EC1A6011DD00A3D805 /* LJHTabBar.m in Sources */,
+				2D56426A1A6CB2FB00DC13B9 /* LJHComposeToolBar.m in Sources */,
 				2D4F66FD1A60457300A3D805 /* UIBarButtonItem+LJH.m in Sources */,
 				2D4F66F21A601E9E00A3D805 /* LJHBadgeButton.m in Sources */,
 				2DE550B91A5FFA2100DBCB15 /* LJHAppDelegate.m in Sources */,
