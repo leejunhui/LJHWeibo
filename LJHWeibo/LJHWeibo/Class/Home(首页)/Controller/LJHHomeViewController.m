@@ -288,7 +288,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view.backgroundColor = [UIColor grayColor];
-    vc.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:vc animated:YES];
+//    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

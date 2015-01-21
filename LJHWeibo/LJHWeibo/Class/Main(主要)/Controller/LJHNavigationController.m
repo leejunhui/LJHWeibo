@@ -34,6 +34,8 @@
 
 + (void)setupNavTheme{
     UINavigationBar *bar = [UINavigationBar appearance];
+//    bar.tintColor = LJHColor(40, 40, 40);
+    bar.tintColor = [UIColor whiteColor];
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSForegroundColorAttributeName] = [UIColor blackColor];
     attrs[NSFontAttributeName]            = [UIFont boldSystemFontOfSize:19];
@@ -46,9 +48,21 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
     if (self.viewControllers.count > 0) {
-        self.hidesBottomBarWhenPushed = YES;
+        viewController.hidesBottomBarWhenPushed = YES;
+        
+        // 设置导航栏按钮
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_back" highIcon:@"navigationbar_back_highlighted" target:self action:@selector(back)];
+        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_more" highIcon:@"navigationbar_more_highlighted" target:self action:@selector(more)];
     }
     [super pushViewController:viewController animated:YES];
+}
+
+- (void)back{
+    [self popViewControllerAnimated:YES];
+}
+
+- (void)more{
+    [self popToRootViewControllerAnimated:YES];
 }
 
 @end
