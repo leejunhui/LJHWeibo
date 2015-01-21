@@ -43,6 +43,8 @@
 #define OAuthAppKey @"3b2bc1dfc47d8b6600bcefd228bb4704"
 //授权的回调地址
 #define OAuthRedirectURL @"http://www.baidu.com"
+//请求的类型
+#define OAuthGrantType @"authorization_code"
 //登录的URL
 #define LoginURLString [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@",OAuthAppID,OAuthRedirectURL]
 

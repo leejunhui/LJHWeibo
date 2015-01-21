@@ -67,6 +67,9 @@
 		2DBE4B721A6FAC3000F7E2B5 /* LJHTextSizeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B711A6FAC3000F7E2B5 /* LJHTextSizeTool.m */; };
 		2DBE4B771A6FB12700F7E2B5 /* LJHSendStatusParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B761A6FB12700F7E2B5 /* LJHSendStatusParam.m */; };
 		2DBE4B7A1A6FB13C00F7E2B5 /* LJHSendStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B791A6FB13C00F7E2B5 /* LJHSendStatusResult.m */; };
+		2DBE4B7D1A6FB7D600F7E2B5 /* LJHOAuthParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B7C1A6FB7D600F7E2B5 /* LJHOAuthParam.m */; };
+		2DBE4B801A6FB7E300F7E2B5 /* LJHOAuthResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B7F1A6FB7E300F7E2B5 /* LJHOAuthResult.m */; };
+		2DBE4B831A6FB7FC00F7E2B5 /* LJHOAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B821A6FB7FC00F7E2B5 /* LJHOAuthTool.m */; };
 		2DD6AA881A6271D5001FF559 /* LJHStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6AA871A6271D5001FF559 /* LJHStatusFrame.m */; };
 		2DE550681A5FF83C00DBCB15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550671A5FF83C00DBCB15 /* Foundation.framework */; };
 		2DE5506A1A5FF83C00DBCB15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */; };
@@ -227,6 +230,12 @@
 		2DBE4B761A6FB12700F7E2B5 /* LJHSendStatusParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHSendStatusParam.m; sourceTree = "<group>"; };
 		2DBE4B781A6FB13C00F7E2B5 /* LJHSendStatusResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHSendStatusResult.h; sourceTree = "<group>"; };
 		2DBE4B791A6FB13C00F7E2B5 /* LJHSendStatusResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHSendStatusResult.m; sourceTree = "<group>"; };
+		2DBE4B7B1A6FB7D600F7E2B5 /* LJHOAuthParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHOAuthParam.h; sourceTree = "<group>"; };
+		2DBE4B7C1A6FB7D600F7E2B5 /* LJHOAuthParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHOAuthParam.m; sourceTree = "<group>"; };
+		2DBE4B7E1A6FB7E300F7E2B5 /* LJHOAuthResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHOAuthResult.h; sourceTree = "<group>"; };
+		2DBE4B7F1A6FB7E300F7E2B5 /* LJHOAuthResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHOAuthResult.m; sourceTree = "<group>"; };
+		2DBE4B811A6FB7FC00F7E2B5 /* LJHOAuthTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHOAuthTool.h; sourceTree = "<group>"; };
+		2DBE4B821A6FB7FC00F7E2B5 /* LJHOAuthTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHOAuthTool.m; sourceTree = "<group>"; };
 		2DD6AA861A6271D5001FF559 /* LJHStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusFrame.h; sourceTree = "<group>"; };
 		2DD6AA871A6271D5001FF559 /* LJHStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHStatusFrame.m; sourceTree = "<group>"; };
 		2DE550641A5FF83B00DBCB15 /* LJHWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJHWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -370,6 +379,8 @@
 			children = (
 				2D4F670B1A604DA400A3D805 /* LJHAccountTool.h */,
 				2D4F670C1A604DA400A3D805 /* LJHAccountTool.m */,
+				2DBE4B811A6FB7FC00F7E2B5 /* LJHOAuthTool.h */,
+				2DBE4B821A6FB7FC00F7E2B5 /* LJHOAuthTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -802,6 +813,10 @@
 			children = (
 				2D4F67071A604D8700A3D805 /* LJHAccount.h */,
 				2D4F67081A604D8700A3D805 /* LJHAccount.m */,
+				2DBE4B7B1A6FB7D600F7E2B5 /* LJHOAuthParam.h */,
+				2DBE4B7C1A6FB7D600F7E2B5 /* LJHOAuthParam.m */,
+				2DBE4B7E1A6FB7E300F7E2B5 /* LJHOAuthResult.h */,
+				2DBE4B7F1A6FB7E300F7E2B5 /* LJHOAuthResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1074,6 +1089,7 @@
 				2DBE4B771A6FB12700F7E2B5 /* LJHSendStatusParam.m in Sources */,
 				2D4F670D1A604DA400A3D805 /* LJHAccountTool.m in Sources */,
 				2DE550BA1A5FFA2100DBCB15 /* main.m in Sources */,
+				2DBE4B831A6FB7FC00F7E2B5 /* LJHOAuthTool.m in Sources */,
 				2DFBC59D1A6A540E0057943D /* UIView+MJExtension.m in Sources */,
 				2DBE4B591A6FA86700F7E2B5 /* LJHUserInfoResult.m in Sources */,
 				2DFBC5A51A6C04180057943D /* LJHComposeViewController.m in Sources */,
@@ -1088,6 +1104,7 @@
 				2D56426A1A6CB2FB00DC13B9 /* LJHComposeToolBar.m in Sources */,
 				2D4F66FD1A60457300A3D805 /* UIBarButtonItem+LJH.m in Sources */,
 				2D4F66F21A601E9E00A3D805 /* LJHBadgeButton.m in Sources */,
+				2DBE4B801A6FB7E300F7E2B5 /* LJHOAuthResult.m in Sources */,
 				2DE550B91A5FFA2100DBCB15 /* LJHAppDelegate.m in Sources */,
 				2D0EEE741A60E7DB00D2680D /* LJHStatus.m in Sources */,
 				2DE550BD1A60041400DBCB15 /* LJHTabBarController.m in Sources */,
@@ -1100,6 +1117,7 @@
 				2DFBC59B1A6A540E0057943D /* UIScrollView+MJExtension.m in Sources */,
 				2D28C3571A67B55D0038587F /* MJPhotoView.m in Sources */,
 				2D9D32001A62B1E700CCA7D5 /* NSDate+LJH.m in Sources */,
+				2DBE4B7D1A6FB7D600F7E2B5 /* LJHOAuthParam.m in Sources */,
 				2D4F67131A604E4A00A3D805 /* LJHNewFeatureController.m in Sources */,
 				2D28C3401A67ADBE0038587F /* LJHPhotosView.m in Sources */,
 				2D0C87441A61188A00725FC9 /* LJHStatusCell.m in Sources */,
