@@ -14,20 +14,22 @@
 #import "LJHUser.h"
 #import "LJHStatusFrame.h"
 #import "LJHStatusCell.h"
+#import "LJHHomeStatusesParam.h"
+#import "LJHStatusTool.h"
 #define LJHTitleButtonDown 0
 #define LJHTitleButtonUp -1
 @interface LJHHomeViewController()
 @property (nonatomic, weak) LJHTitleButton *titleButton;
-@property (strong, nonatomic) NSMutableArray *statuFrames;
+@property (strong, nonatomic) NSMutableArray *statusFrames;
 @end
 
 @implementation LJHHomeViewController
 
-- (NSMutableArray *)statuFrames{
-    if (_statuFrames == nil) {
-        _statuFrames = [NSMutableArray array];
+- (NSMutableArray *)statusFrames{
+    if (_statusFrames == nil) {
+        _statusFrames = [NSMutableArray array];
     }
-    return _statuFrames;
+    return _statusFrames;
 }
 
 -(void)viewDidLoad{
@@ -45,7 +47,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [LJHAccountTool account].access_token;
     params[@"uid"] = @([LJHAccountTool account].uid);
-    
+
     // 2.请求
     [LJHHttpTool getWithURL:@"https://api.weibo.com/2/users/show.json" params:params success:^(id json) {
         // 字典转模型
@@ -85,62 +87,64 @@
 }
 
 - (void)loadNewData{
-    
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    LJHAccount *account = [LJHAccountTool account];
-    params[@"access_token"] = account.access_token;
-    params[@"count"] = [NSString stringWithFormat:@"%d",5];
-    if (self.statuFrames.count) {
-        LJHStatusFrame *statusFrame = self.statuFrames[0];
-        params[@"since_id"] = statusFrame.status.idstr;
+    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];
+    param.access_token = [LJHAccountTool account].access_token;
+    param.count = 5;
+    if (self.statusFrames.count) {
+        LJHStatusFrame *statusFrame = self.statusFrames[0];
+        param.since_id = [statusFrame.status.idstr longLongValue];
     }
     
-    // 2.请求
-    [LJHHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
-        //字典数组转模型数组
+    // 2.发送请求
+    [LJHStatusTool homeStatusesWithParam:param success:^(id json) {
+        // 将字典数组转为模型数组(里面放的就是IWStatus模型)
         NSArray *statusArray = [LJHStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
-        
-        //创建statusFrame模型对象
+        // 创建frame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
         for (LJHStatus *status in statusArray) {
             LJHStatusFrame *statusFrame = [[LJHStatusFrame alloc] init];
+            // 传递微博模型数据
             statusFrame.status = status;
             [statusFrameArray addObject:statusFrame];
         }
         
-        //赋值
+        // 将最新的数据追加到旧数据的最前面
+        // 旧数据: self.statusFrames
+        // 新数据: statusFrameArray
         NSMutableArray *tempArray = [NSMutableArray array];
+        // 添加statusFrameArray的所有元素 添加到 tempArray中
         [tempArray addObjectsFromArray:statusFrameArray];
-        [tempArray addObjectsFromArray:self.statuFrames];
-        self.statuFrames = tempArray;
+        // 添加self.statusFrames的所有元素 添加到 tempArray中
+        [tempArray addObjectsFromArray:self.statusFrames];
+        self.statusFrames = tempArray;
         
+        // 刷新表格
         [self.tableView reloadData];
         
+        // 让刷新控件停止显示刷新状态
         [self.tableView headerEndRefreshing];
         
+        // 显示最新微博的数量(给用户一些友善的提示)
         [self showNewStatusCount:(int)statusFrameArray.count];
     } failure:^(NSError *error) {
-        LJHLog(@"请求失败 : %@",error);
+        // 让刷新控件停止显示刷新状态
         [self.tableView headerEndRefreshing];
     }];
 }
 
 - (void)loadMoreData{
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    LJHAccount *account = [LJHAccountTool account];
-    params[@"access_token"] = account.access_token;
-    params[@"count"] = [NSString stringWithFormat:@"%d",5];
-    if (self.statuFrames.count) {
-        LJHStatusFrame *statusFrame = [self.statuFrames lastObject];
-        long long  max_id = [statusFrame.status.idstr longLongValue] - 1;
-        params[@"max_id"] = @(max_id);
+    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];
+    param.access_token = [LJHAccountTool account].access_token;
+    param.count = 5;
+    if (self.statusFrames.count) {
+        LJHStatusFrame *statusFrame = [self.statusFrames lastObject];
+        // 加载ID <= max_id的微博
+        param.max_id = [statusFrame.status.idstr longLongValue] - 1;
     }
     
-    // 2.请求
-    [LJHHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
-        
+    [LJHStatusTool homeStatusesWithParam:param success:^(id json) {
         //字典数组转模型数组
         NSArray *statusArray = [LJHStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         
@@ -152,7 +156,7 @@
             [statusFrameArray addObject:statusFrame];
         }
         
-        [self.statuFrames addObjectsFromArray:statusFrameArray];
+        [self.statusFrames addObjectsFromArray:statusFrameArray];
         
         [self.tableView reloadData];
         
@@ -161,7 +165,6 @@
         LJHLog(@"请求失败 : %@",error);
         [self.tableView footerEndRefreshing];
     }];
-
 }
 
 - (void)showNewStatusCount:(int)count{
@@ -263,18 +266,18 @@
 
 #pragma mark - UITableView DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.statuFrames.count;
+    return self.statusFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LJHStatusCell *cell = [LJHStatusCell cellWithTableView:tableView];
-    cell.statusFrame = self.statuFrames[indexPath.row];
+    cell.statusFrame = self.statusFrames[indexPath.row];
     return cell;
 }
 
 #pragma mark - UITableView Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LJHStatusFrame *statusFrame = self.statuFrames[indexPath.row];
+    LJHStatusFrame *statusFrame = self.statusFrames[indexPath.row];
     return statusFrame.cellHeight;
 }
 
