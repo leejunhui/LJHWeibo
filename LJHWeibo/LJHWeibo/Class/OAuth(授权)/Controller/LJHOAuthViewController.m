@@ -11,6 +11,9 @@
 #import "LJHAccountTool.h"
 #import "LJHAccount.h"
 #import "LJHWeiboTool.h"
+#import "LJHOAuthParam.h"
+#import "LJHOAuthResult.h"
+#import "LJHOAuthTool.h"
 @interface LJHOAuthViewController()<UIWebViewDelegate>
 
 @end
@@ -77,39 +80,21 @@
  */
 - (void)accessTokenWithCode:(NSString *)code{
     
-    NSString *url = @"https://api.weibo.com/oauth2/access_token";
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"client_id"] = OAuthAppID;
-    params[@"client_secret"] = OAuthAppKey;
-    params[@"code"] = code;
-    params[@"grant_type"] = @"authorization_code";
-    params[@"redirect_uri"] = OAuthRedirectURL;
+    LJHOAuthParam *param = [LJHOAuthParam param];
+    param.client_id = OAuthAppID;
+    param.client_secret = OAuthAppKey;
+    param.code = code;
+    param.grant_type = OAuthGrantType;
+    param.redirect_uri = OAuthRedirectURL;
     
-    [LJHHttpTool postWithURL:url params:params success:^(id json) {
-        /*
-         "access_token": "ACCESS_TOKEN",
-         "expires_in": 1234,
-         "remind_in":"798114",
-         "uid":"12341234"
-         */
-        
-        /**
-         *  字典转模型
-         */
-        LJHAccount *account = [LJHAccount accountWithDict:json];
-        
-        [LJHAccountTool saveAccount:account];
-        
+    [LJHOAuthTool OAuthWithParam:param success:^(LJHOAuthResult *result) {
+        [LJHAccountTool saveAccount:result];
         //判断是否需要显示新特性界面
         [LJHWeiboTool chooseRootController];
-        
-        //        LJHLog(@"请求成功 : %@",responseObject);
         [MBProgressHUD hideHUD];
     } failure:^(NSError *error) {
-        //        LJHLog(@"请求失败 : %@",error);
         [MBProgressHUD hideHUD];
     }];
-    
 }
 
 @end

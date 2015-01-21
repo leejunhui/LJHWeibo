@@ -22,7 +22,7 @@
 + (void)homeStatusesWithParam:(LJHHomeStatusesParam *)param success:(void (^)(LJHHomeStatusesResult *result))success failure:(void (^)(NSError *error))failure;
 
 /**
- *  发送一条微博(没有图片)
+ *  发送一条微博
  */
 + (void)sendStatusWithParam:(LJHSendStatusParam *)param success:(void (^)(LJHSendStatusResult *result))success failure:(void (^)(NSError *error))failure;
 @end
