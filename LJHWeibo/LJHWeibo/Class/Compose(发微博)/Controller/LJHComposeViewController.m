@@ -13,6 +13,9 @@
 #import "LJHAccountTool.h"
 #import "LJHComposeImageViews.h"
 #import <ZYQAssetPickerController.h>
+#import "LJHStatusTool.h"
+#import "LJHSendStatusParam.h"
+#import "LJHSendStatusResult.h"
 @interface LJHComposeViewController()<UITextViewDelegate,LJHComposeToolbarDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ZYQAssetPickerControllerDelegate,LJHComposeImageViewsDelegate>
 @property (weak, nonatomic) UITextView *textView;
 @property (nonatomic, weak) LJHComposeToolBar *toolbar;
@@ -231,10 +234,9 @@
  *  发送带有配图的微博
  */
 - (void)sendStatusWithImage{
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"status"] = self.textView.text;
-    params[@"access_token"] = [LJHAccountTool account].access_token;
-    NSMutableArray *dataArray = [NSMutableArray array];
+    LJHSendStatusParam *param = [LJHSendStatusParam param];
+    param.status = self.textView.text;
+    
     for (int index = 0; index < self.imageViews.totalImages.count; index ++) {
         IWFormData *formData = [[IWFormData alloc] init];
         UIImage *image = self.imageViews.totalImages[index];
@@ -243,9 +245,9 @@
         formData.name = @"pic";
         formData.filename = @"";
         formData.mimeType = @"image/jpeg";
-        [dataArray addObject:formData];
+        [param.formData addObject:formData];
     }
-    [LJHHttpTool postWithURL:@"https://upload.api.weibo.com/2/statuses/upload.json" params:params formDataArray:dataArray success:^(id json) {
+    [LJHStatusTool sendStatusWithParam:param success:^(LJHSendStatusResult *result) {
         [MBProgressHUD showSuccess:@"发送成功"];
     } failure:^(NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
@@ -256,17 +258,19 @@
  *  发送只有文字的微博
  */
 - (void)sendStatusWithoutImage{
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"status"] = self.textView.text;
-    params[@"access_token"] = [LJHAccountTool account].access_token;
+    LJHSendStatusParam *param = [LJHSendStatusParam param];
+    param.status = self.textView.text;
     
-    [LJHHttpTool postWithURL:@"https://api.weibo.com/2/statuses/update.json" params:params success:^(id json) {
+    [LJHStatusTool sendStatusWithParam:param success:^(LJHSendStatusResult *result) {
         [MBProgressHUD showSuccess:@"发送成功"];
     } failure:^(NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
     }];
 }
 
+/**
+ *  发送微博
+ */
 - (void)send{
     if (self.imageViews.totalImages.count) {
         [self sendStatusWithImage];
@@ -275,7 +279,7 @@
         [self sendStatusWithoutImage];
     }
     
-    // 4.关闭控制器
+    // 关闭控制器
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -284,6 +288,9 @@
     [self openPhotoLibrary];
 }
 
+/**
+ *  通过滑动界面来结束编辑，即关闭键盘
+ */
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.view endEditing:YES];

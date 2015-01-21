@@ -65,6 +65,8 @@
 		2DBE4B631A6FA8C900F7E2B5 /* LJHBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B621A6FA8C900F7E2B5 /* LJHBaseParam.m */; };
 		2DBE4B661A6FA9BB00F7E2B5 /* LJHUserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B651A6FA9BB00F7E2B5 /* LJHUserTool.m */; };
 		2DBE4B721A6FAC3000F7E2B5 /* LJHTextSizeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B711A6FAC3000F7E2B5 /* LJHTextSizeTool.m */; };
+		2DBE4B771A6FB12700F7E2B5 /* LJHSendStatusParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B761A6FB12700F7E2B5 /* LJHSendStatusParam.m */; };
+		2DBE4B7A1A6FB13C00F7E2B5 /* LJHSendStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B791A6FB13C00F7E2B5 /* LJHSendStatusResult.m */; };
 		2DD6AA881A6271D5001FF559 /* LJHStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6AA871A6271D5001FF559 /* LJHStatusFrame.m */; };
 		2DE550681A5FF83C00DBCB15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550671A5FF83C00DBCB15 /* Foundation.framework */; };
 		2DE5506A1A5FF83C00DBCB15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */; };
@@ -221,6 +223,10 @@
 		2DBE4B651A6FA9BB00F7E2B5 /* LJHUserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHUserTool.m; sourceTree = "<group>"; };
 		2DBE4B701A6FAC3000F7E2B5 /* LJHTextSizeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHTextSizeTool.h; sourceTree = "<group>"; };
 		2DBE4B711A6FAC3000F7E2B5 /* LJHTextSizeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHTextSizeTool.m; sourceTree = "<group>"; };
+		2DBE4B751A6FB12700F7E2B5 /* LJHSendStatusParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHSendStatusParam.h; sourceTree = "<group>"; };
+		2DBE4B761A6FB12700F7E2B5 /* LJHSendStatusParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHSendStatusParam.m; sourceTree = "<group>"; };
+		2DBE4B781A6FB13C00F7E2B5 /* LJHSendStatusResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHSendStatusResult.h; sourceTree = "<group>"; };
+		2DBE4B791A6FB13C00F7E2B5 /* LJHSendStatusResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHSendStatusResult.m; sourceTree = "<group>"; };
 		2DD6AA861A6271D5001FF559 /* LJHStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusFrame.h; sourceTree = "<group>"; };
 		2DD6AA871A6271D5001FF559 /* LJHStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHStatusFrame.m; sourceTree = "<group>"; };
 		2DE550641A5FF83B00DBCB15 /* LJHWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJHWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -433,6 +439,24 @@
 				2DBE4B621A6FA8C900F7E2B5 /* LJHBaseParam.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2DBE4B731A6FB09F00F7E2B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DBE4B751A6FB12700F7E2B5 /* LJHSendStatusParam.h */,
+				2DBE4B761A6FB12700F7E2B5 /* LJHSendStatusParam.m */,
+				2DBE4B781A6FB13C00F7E2B5 /* LJHSendStatusResult.h */,
+				2DBE4B791A6FB13C00F7E2B5 /* LJHSendStatusResult.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2DBE4B741A6FB09F00F7E2B5 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		2DE5505B1A5FF83B00DBCB15 = {
@@ -837,8 +861,9 @@
 		2DFBC59F1A6C03EE0057943D /* Compose(发微博) */ = {
 			isa = PBXGroup;
 			children = (
+				2DBE4B731A6FB09F00F7E2B5 /* Model */,
+				2DBE4B741A6FB09F00F7E2B5 /* Tool */,
 				2DFBC5A01A6C03EE0057943D /* Controller */,
-				2DFBC5A11A6C03EE0057943D /* Model */,
 				2DFBC5A21A6C03EE0057943D /* View */,
 			);
 			path = "Compose(发微博)";
@@ -851,13 +876,6 @@
 				2DFBC5A41A6C04180057943D /* LJHComposeViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		2DFBC5A11A6C03EE0057943D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		2DFBC5A21A6C03EE0057943D /* View */ = {
@@ -1043,6 +1061,7 @@
 				2D0EEE901A60E81800D2680D /* MJMethod.m in Sources */,
 				2DBE4B521A6FA83700F7E2B5 /* LJHHomeStatusesResult.m in Sources */,
 				2D0EEE921A60E81800D2680D /* MJTypeEncoding.m in Sources */,
+				2DBE4B7A1A6FB13C00F7E2B5 /* LJHSendStatusResult.m in Sources */,
 				2D023F121A641CCA00E4215B /* LJHPhoto.m in Sources */,
 				2DBE4B561A6FA85C00F7E2B5 /* LJHUserInfoParam.m in Sources */,
 				2DBE4B721A6FAC3000F7E2B5 /* LJHTextSizeTool.m in Sources */,
@@ -1052,6 +1071,7 @@
 				2D28C3561A67B55D0038587F /* MJPhotoToolbar.m in Sources */,
 				2D4F66E91A600F5200A3D805 /* UIImage+LJH.m in Sources */,
 				2D28C3531A67B55D0038587F /* MJPhotoBrowser.m in Sources */,
+				2DBE4B771A6FB12700F7E2B5 /* LJHSendStatusParam.m in Sources */,
 				2D4F670D1A604DA400A3D805 /* LJHAccountTool.m in Sources */,
 				2DE550BA1A5FFA2100DBCB15 /* main.m in Sources */,
 				2DFBC59D1A6A540E0057943D /* UIView+MJExtension.m in Sources */,

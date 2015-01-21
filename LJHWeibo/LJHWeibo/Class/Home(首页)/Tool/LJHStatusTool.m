@@ -22,4 +22,35 @@
         }
     }];
 }
+
++ (void)sendStatusWithParam:(LJHSendStatusParam *)param success:(void (^)(LJHSendStatusResult *))success failure:(void (^)(NSError *))failure{
+    if (param.formData == nil) {
+        [LJHHttpTool postWithURL:@"https://api.weibo.com/2/statuses/update.json" params:param.keyValues success:^(id json) {
+            if (success) {
+                LJHSendStatusResult *result = [LJHSendStatusResult objectWithKeyValues:json];
+                success(result);
+            }
+        } failure:^(NSError *error) {
+            if (failure) {
+                failure(error);
+            }
+        }];
+    }
+    else
+    {
+        [LJHHttpTool postWithURL:@"https://upload.api.weibo.com/2/statuses/upload.json" params:param.keyValues formDataArray:param.formData success:^(id json) {
+            if (success) {
+                LJHSendStatusResult *result = [LJHSendStatusResult objectWithKeyValues:json];
+                success(result);
+            }
+        } failure:^(NSError *error) {
+            if (failure) {
+                failure(error);
+            }
+        }];
+        LJHLog(@"有图片要发送!");
+    }
+
+}
+
 @end
