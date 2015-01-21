@@ -8,13 +8,13 @@
 
 #import "LJHStatusTool.h"
 #import "LJHHttpTool.h"
-#import "LJHHomeStatusesParam.h"
 @implementation LJHStatusTool
-+ (void)homeStatusesWithParam:(LJHHomeStatusesParam *)param success:(void (^)(id))success failure:(void (^)(NSError *))failure
++ (void)homeStatusesWithParam:(LJHHomeStatusesParam *)param success:(void (^)(LJHHomeStatusesResult *result))success failure:(void (^)(NSError *))failure
 {
     [LJHHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:param.keyValues success:^(id json) {
         if (success) {
-            success(json);
+            LJHHomeStatusesResult *result = [LJHHomeStatusesResult objectWithKeyValues:json];
+            success(result);
         }
     } failure:^(NSError *error) {
         if (failure) {

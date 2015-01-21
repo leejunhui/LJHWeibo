@@ -40,7 +40,6 @@
 		2D4F66EC1A6011DD00A3D805 /* LJHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66EB1A6011DD00A3D805 /* LJHTabBar.m */; };
 		2D4F66EF1A60176100A3D805 /* LJHTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66EE1A60176100A3D805 /* LJHTabBarButton.m */; };
 		2D4F66F21A601E9E00A3D805 /* LJHBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66F11A601E9E00A3D805 /* LJHBadgeButton.m */; };
-		2D4F66F51A60392B00A3D805 /* TextSizeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66F41A60392B00A3D805 /* TextSizeTool.m */; };
 		2D4F66F91A603DBE00A3D805 /* LJHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66F81A603DBE00A3D805 /* LJHNavigationController.m */; };
 		2D4F66FD1A60457300A3D805 /* UIBarButtonItem+LJH.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66FC1A60457300A3D805 /* UIBarButtonItem+LJH.m */; };
 		2D4F67001A60466A00A3D805 /* LJHTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F66FF1A60466A00A3D805 /* LJHTitleButton.m */; };
@@ -48,7 +47,6 @@
 		2D4F67061A604D7900A3D805 /* LJHOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F67051A604D7900A3D805 /* LJHOAuthViewController.m */; };
 		2D4F67091A604D8700A3D805 /* LJHAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F67081A604D8700A3D805 /* LJHAccount.m */; };
 		2D4F670D1A604DA400A3D805 /* LJHAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F670C1A604DA400A3D805 /* LJHAccountTool.m */; };
-		2D4F67101A604DAF00A3D805 /* LJHWeiboTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F670F1A604DAF00A3D805 /* LJHWeiboTool.m */; };
 		2D4F67131A604E4A00A3D805 /* LJHNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F67121A604E4A00A3D805 /* LJHNewFeatureController.m */; };
 		2D56426A1A6CB2FB00DC13B9 /* LJHComposeToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5642691A6CB2FB00DC13B9 /* LJHComposeToolBar.m */; };
 		2D5642761A6CE19E00DC13B9 /* LJHComposeImageViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5642751A6CE19E00DC13B9 /* LJHComposeImageViews.m */; };
@@ -59,7 +57,14 @@
 		2D9D32031A62BCCF00CCA7D5 /* LJHStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D32021A62BCCF00CCA7D5 /* LJHStatusToolBar.m */; };
 		2DBE4B411A6F955600F7E2B5 /* LJHHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B401A6F955600F7E2B5 /* LJHHttpTool.m */; };
 		2DBE4B451A6F9A7A00F7E2B5 /* LJHStatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B441A6F9A7A00F7E2B5 /* LJHStatusTool.m */; };
-		2DBE4B481A6F9AA800F7E2B5 /* LJHHomeStatusesParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B471A6F9AA800F7E2B5 /* LJHHomeStatusesParam.m */; };
+		2DBE4B511A6FA83700F7E2B5 /* LJHHomeStatusesParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B4E1A6FA83700F7E2B5 /* LJHHomeStatusesParam.m */; };
+		2DBE4B521A6FA83700F7E2B5 /* LJHHomeStatusesResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B501A6FA83700F7E2B5 /* LJHHomeStatusesResult.m */; };
+		2DBE4B561A6FA85C00F7E2B5 /* LJHUserInfoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B551A6FA85C00F7E2B5 /* LJHUserInfoParam.m */; };
+		2DBE4B591A6FA86700F7E2B5 /* LJHUserInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B581A6FA86700F7E2B5 /* LJHUserInfoResult.m */; };
+		2DBE4B5E1A6FA8AD00F7E2B5 /* LJHWeiboTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B5B1A6FA8AD00F7E2B5 /* LJHWeiboTool.m */; };
+		2DBE4B631A6FA8C900F7E2B5 /* LJHBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B621A6FA8C900F7E2B5 /* LJHBaseParam.m */; };
+		2DBE4B661A6FA9BB00F7E2B5 /* LJHUserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B651A6FA9BB00F7E2B5 /* LJHUserTool.m */; };
+		2DBE4B721A6FAC3000F7E2B5 /* LJHTextSizeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B711A6FAC3000F7E2B5 /* LJHTextSizeTool.m */; };
 		2DD6AA881A6271D5001FF559 /* LJHStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6AA871A6271D5001FF559 /* LJHStatusFrame.m */; };
 		2DE550681A5FF83C00DBCB15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550671A5FF83C00DBCB15 /* Foundation.framework */; };
 		2DE5506A1A5FF83C00DBCB15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */; };
@@ -181,8 +186,6 @@
 		2D4F67081A604D8700A3D805 /* LJHAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJHAccount.m; path = ../View/LJHAccount.m; sourceTree = "<group>"; };
 		2D4F670B1A604DA400A3D805 /* LJHAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHAccountTool.h; sourceTree = "<group>"; };
 		2D4F670C1A604DA400A3D805 /* LJHAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHAccountTool.m; sourceTree = "<group>"; };
-		2D4F670E1A604DAF00A3D805 /* LJHWeiboTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHWeiboTool.h; sourceTree = "<group>"; };
-		2D4F670F1A604DAF00A3D805 /* LJHWeiboTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHWeiboTool.m; sourceTree = "<group>"; };
 		2D4F67111A604E4A00A3D805 /* LJHNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHNewFeatureController.h; sourceTree = "<group>"; };
 		2D4F67121A604E4A00A3D805 /* LJHNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHNewFeatureController.m; sourceTree = "<group>"; };
 		2D5642681A6CB2FB00DC13B9 /* LJHComposeToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHComposeToolBar.h; sourceTree = "<group>"; };
@@ -202,8 +205,22 @@
 		2DBE4B401A6F955600F7E2B5 /* LJHHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHHttpTool.m; sourceTree = "<group>"; };
 		2DBE4B431A6F9A7A00F7E2B5 /* LJHStatusTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusTool.h; sourceTree = "<group>"; };
 		2DBE4B441A6F9A7A00F7E2B5 /* LJHStatusTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHStatusTool.m; sourceTree = "<group>"; };
-		2DBE4B461A6F9AA800F7E2B5 /* LJHHomeStatusesParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHHomeStatusesParam.h; sourceTree = "<group>"; };
-		2DBE4B471A6F9AA800F7E2B5 /* LJHHomeStatusesParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHHomeStatusesParam.m; sourceTree = "<group>"; };
+		2DBE4B4D1A6FA83700F7E2B5 /* LJHHomeStatusesParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHHomeStatusesParam.h; sourceTree = "<group>"; };
+		2DBE4B4E1A6FA83700F7E2B5 /* LJHHomeStatusesParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHHomeStatusesParam.m; sourceTree = "<group>"; };
+		2DBE4B4F1A6FA83700F7E2B5 /* LJHHomeStatusesResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHHomeStatusesResult.h; sourceTree = "<group>"; };
+		2DBE4B501A6FA83700F7E2B5 /* LJHHomeStatusesResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHHomeStatusesResult.m; sourceTree = "<group>"; };
+		2DBE4B541A6FA85C00F7E2B5 /* LJHUserInfoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHUserInfoParam.h; sourceTree = "<group>"; };
+		2DBE4B551A6FA85C00F7E2B5 /* LJHUserInfoParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHUserInfoParam.m; sourceTree = "<group>"; };
+		2DBE4B571A6FA86700F7E2B5 /* LJHUserInfoResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHUserInfoResult.h; sourceTree = "<group>"; };
+		2DBE4B581A6FA86700F7E2B5 /* LJHUserInfoResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHUserInfoResult.m; sourceTree = "<group>"; };
+		2DBE4B5A1A6FA8AD00F7E2B5 /* LJHWeiboTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHWeiboTool.h; sourceTree = "<group>"; };
+		2DBE4B5B1A6FA8AD00F7E2B5 /* LJHWeiboTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHWeiboTool.m; sourceTree = "<group>"; };
+		2DBE4B611A6FA8C900F7E2B5 /* LJHBaseParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHBaseParam.h; sourceTree = "<group>"; };
+		2DBE4B621A6FA8C900F7E2B5 /* LJHBaseParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHBaseParam.m; sourceTree = "<group>"; };
+		2DBE4B641A6FA9BB00F7E2B5 /* LJHUserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHUserTool.h; sourceTree = "<group>"; };
+		2DBE4B651A6FA9BB00F7E2B5 /* LJHUserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHUserTool.m; sourceTree = "<group>"; };
+		2DBE4B701A6FAC3000F7E2B5 /* LJHTextSizeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHTextSizeTool.h; sourceTree = "<group>"; };
+		2DBE4B711A6FAC3000F7E2B5 /* LJHTextSizeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHTextSizeTool.m; sourceTree = "<group>"; };
 		2DD6AA861A6271D5001FF559 /* LJHStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusFrame.h; sourceTree = "<group>"; };
 		2DD6AA871A6271D5001FF559 /* LJHStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHStatusFrame.m; sourceTree = "<group>"; };
 		2DE550641A5FF83B00DBCB15 /* LJHWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJHWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -366,8 +383,12 @@
 		2DBE4B3E1A6F953D00F7E2B5 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				2DBE4B5A1A6FA8AD00F7E2B5 /* LJHWeiboTool.h */,
+				2DBE4B5B1A6FA8AD00F7E2B5 /* LJHWeiboTool.m */,
 				2DBE4B3F1A6F955600F7E2B5 /* LJHHttpTool.h */,
 				2DBE4B401A6F955600F7E2B5 /* LJHHttpTool.m */,
+				2DBE4B701A6FAC3000F7E2B5 /* LJHTextSizeTool.h */,
+				2DBE4B711A6FAC3000F7E2B5 /* LJHTextSizeTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -377,8 +398,41 @@
 			children = (
 				2DBE4B431A6F9A7A00F7E2B5 /* LJHStatusTool.h */,
 				2DBE4B441A6F9A7A00F7E2B5 /* LJHStatusTool.m */,
+				2DBE4B641A6FA9BB00F7E2B5 /* LJHUserTool.h */,
+				2DBE4B651A6FA9BB00F7E2B5 /* LJHUserTool.m */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		2DBE4B4C1A6FA83700F7E2B5 /* HomeStatuses */ = {
+			isa = PBXGroup;
+			children = (
+				2DBE4B4D1A6FA83700F7E2B5 /* LJHHomeStatusesParam.h */,
+				2DBE4B4E1A6FA83700F7E2B5 /* LJHHomeStatusesParam.m */,
+				2DBE4B4F1A6FA83700F7E2B5 /* LJHHomeStatusesResult.h */,
+				2DBE4B501A6FA83700F7E2B5 /* LJHHomeStatusesResult.m */,
+			);
+			path = HomeStatuses;
+			sourceTree = "<group>";
+		};
+		2DBE4B531A6FA84300F7E2B5 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				2DBE4B541A6FA85C00F7E2B5 /* LJHUserInfoParam.h */,
+				2DBE4B551A6FA85C00F7E2B5 /* LJHUserInfoParam.m */,
+				2DBE4B571A6FA86700F7E2B5 /* LJHUserInfoResult.h */,
+				2DBE4B581A6FA86700F7E2B5 /* LJHUserInfoResult.m */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		2DBE4B601A6FA8BB00F7E2B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DBE4B611A6FA8C900F7E2B5 /* LJHBaseParam.h */,
+				2DBE4B621A6FA8C900F7E2B5 /* LJHBaseParam.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2DE5505B1A5FF83B00DBCB15 = {
@@ -524,6 +578,8 @@
 		2DE5509D1A5FFA2100DBCB15 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2DBE4B4C1A6FA83700F7E2B5 /* HomeStatuses */,
+				2DBE4B531A6FA84300F7E2B5 /* UserInfo */,
 				2D0EEE721A60E7DB00D2680D /* LJHStatus.h */,
 				2D0EEE731A60E7DB00D2680D /* LJHStatus.m */,
 				2D0EEE751A60E7E400D2680D /* LJHUser.h */,
@@ -532,8 +588,6 @@
 				2DD6AA871A6271D5001FF559 /* LJHStatusFrame.m */,
 				2D023F101A641CCA00E4215B /* LJHPhoto.h */,
 				2D023F111A641CCA00E4215B /* LJHPhoto.m */,
-				2DBE4B461A6F9AA800F7E2B5 /* LJHHomeStatusesParam.h */,
-				2DBE4B471A6F9AA800F7E2B5 /* LJHHomeStatusesParam.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -731,6 +785,7 @@
 		2DE550B31A5FFA2100DBCB15 /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
+				2DBE4B601A6FA8BB00F7E2B5 /* Model */,
 				2DBE4B3E1A6F953D00F7E2B5 /* Tool */,
 				2D0EEE781A60E7F700D2680D /* lib */,
 				2DE550B41A5FFA2100DBCB15 /* Category */,
@@ -738,8 +793,6 @@
 				2DE550B61A5FFA2100DBCB15 /* LJHAppDelegate.m */,
 				2DE550B71A5FFA2100DBCB15 /* LJHWeibo-Prefix.pch */,
 				2DE550B81A5FFA2100DBCB15 /* main.m */,
-				2D4F670E1A604DAF00A3D805 /* LJHWeiboTool.h */,
-				2D4F670F1A604DAF00A3D805 /* LJHWeiboTool.m */,
 				2DFBC59E1A6BFD380057943D /* Common.h */,
 			);
 			path = "Other(其他)";
@@ -969,6 +1022,7 @@
 				2D28C3551A67B55D0038587F /* MJPhotoProgressView.m in Sources */,
 				2D4F66EF1A60176100A3D805 /* LJHTabBarButton.m in Sources */,
 				2D0EEE8D1A60E81800D2680D /* MJArgument.m in Sources */,
+				2DBE4B5E1A6FA8AD00F7E2B5 /* LJHWeiboTool.m in Sources */,
 				2D28C33D1A67AD8C0038587F /* LJHPhotoView.m in Sources */,
 				2D5642761A6CE19E00DC13B9 /* LJHComposeImageViews.m in Sources */,
 				2D56427F1A6CE35200DC13B9 /* MBProgressHUD.m in Sources */,
@@ -982,13 +1036,16 @@
 				2DFBC5A81A6C06A90057943D /* LJHTextView.m in Sources */,
 				2D28C3541A67B55D0038587F /* MJPhotoLoadingView.m in Sources */,
 				2D4F66DD1A6004FB00A3D805 /* LJHHomeViewController.m in Sources */,
+				2DBE4B631A6FA8C900F7E2B5 /* LJHBaseParam.m in Sources */,
 				2D4F66E31A60052600A3D805 /* LJHDiscoverController.m in Sources */,
 				2D0EEE941A60E81800D2680D /* NSObject+MJKeyValue.m in Sources */,
 				2D9D32031A62BCCF00CCA7D5 /* LJHStatusToolBar.m in Sources */,
-				2D4F67101A604DAF00A3D805 /* LJHWeiboTool.m in Sources */,
 				2D0EEE901A60E81800D2680D /* MJMethod.m in Sources */,
+				2DBE4B521A6FA83700F7E2B5 /* LJHHomeStatusesResult.m in Sources */,
 				2D0EEE921A60E81800D2680D /* MJTypeEncoding.m in Sources */,
 				2D023F121A641CCA00E4215B /* LJHPhoto.m in Sources */,
+				2DBE4B561A6FA85C00F7E2B5 /* LJHUserInfoParam.m in Sources */,
+				2DBE4B721A6FAC3000F7E2B5 /* LJHTextSizeTool.m in Sources */,
 				2D0EEE931A60E81800D2680D /* NSObject+MJCoding.m in Sources */,
 				2DFBC5981A6A540E0057943D /* MJRefreshConst.m in Sources */,
 				2D0EEE8E1A60E81800D2680D /* MJIvar.m in Sources */,
@@ -998,9 +1055,10 @@
 				2D4F670D1A604DA400A3D805 /* LJHAccountTool.m in Sources */,
 				2DE550BA1A5FFA2100DBCB15 /* main.m in Sources */,
 				2DFBC59D1A6A540E0057943D /* UIView+MJExtension.m in Sources */,
+				2DBE4B591A6FA86700F7E2B5 /* LJHUserInfoResult.m in Sources */,
 				2DFBC5A51A6C04180057943D /* LJHComposeViewController.m in Sources */,
 				2D4F66F91A603DBE00A3D805 /* LJHNavigationController.m in Sources */,
-				2DBE4B481A6F9AA800F7E2B5 /* LJHHomeStatusesParam.m in Sources */,
+				2DBE4B511A6FA83700F7E2B5 /* LJHHomeStatusesParam.m in Sources */,
 				2D56427D1A6CE35200DC13B9 /* MBProgressHUD+MJ.m in Sources */,
 				2DBE4B451A6F9A7A00F7E2B5 /* LJHStatusTool.m in Sources */,
 				2DFBC59C1A6A540E0057943D /* UIScrollView+MJRefresh.m in Sources */,
@@ -1017,10 +1075,10 @@
 				2D4F66E61A60053600A3D805 /* LJHMeViewController.m in Sources */,
 				2DBE4B411A6F955600F7E2B5 /* LJHHttpTool.m in Sources */,
 				2DFBC5991A6A540E0057943D /* MJRefreshFooterView.m in Sources */,
+				2DBE4B661A6FA9BB00F7E2B5 /* LJHUserTool.m in Sources */,
 				2D4F66E01A60051300A3D805 /* LJHMessageViewController.m in Sources */,
 				2DFBC59B1A6A540E0057943D /* UIScrollView+MJExtension.m in Sources */,
 				2D28C3571A67B55D0038587F /* MJPhotoView.m in Sources */,
-				2D4F66F51A60392B00A3D805 /* TextSizeTool.m in Sources */,
 				2D9D32001A62B1E700CCA7D5 /* NSDate+LJH.m in Sources */,
 				2D4F67131A604E4A00A3D805 /* LJHNewFeatureController.m in Sources */,
 				2D28C3401A67ADBE0038587F /* LJHPhotosView.m in Sources */,

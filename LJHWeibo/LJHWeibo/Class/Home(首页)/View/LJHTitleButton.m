@@ -44,7 +44,7 @@
 
 - (void)setTitle:(NSString *)title forState:(UIControlState)state{
     // 根据title计算自己的宽度
-    CGFloat titleW = [TextSizeTool sizeWithText:title font:self.titleLabel.font maxSize:LJHStatusMaxSize].width;
+    CGFloat titleW = [LJHTextSizeTool sizeWithText:title font:self.titleLabel.font maxSize:LJHStatusMaxSize].width;
 //    CGFloat titleW = [title sizeWithFont:self.titleLabel.font].width;
     CGRect frame = self.frame;
     frame.size.width = titleW + LJHTitleButtonImageW + 5;

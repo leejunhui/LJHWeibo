@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class LJHHomeStatusesParam;
-
+#import "LJHHomeStatusesParam.h"
+#import "LJHHomeStatusesResult.h"
 @interface LJHStatusTool : NSObject
-+ (void)homeStatusesWithParam:(LJHHomeStatusesParam *)param success:(void (^)(id json))success failure:(void (^)(NSError *error))failure;
++ (void)homeStatusesWithParam:(LJHHomeStatusesParam *)param success:(void (^)(LJHHomeStatusesResult *result))success failure:(void (^)(NSError *error))failure;
 @end

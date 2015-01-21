@@ -31,7 +31,7 @@
         self.hidden = NO;
         [self setTitle:badgeValue forState:UIControlStateNormal];
         CGRect buttonFrame = self.frame;
-        CGSize textSize = [TextSizeTool sizeWithText:badgeValue font:self.titleLabel.font maxSize:CGSizeMake(100, self.currentBackgroundImage.size.height)];
+        CGSize textSize = [LJHTextSizeTool sizeWithText:badgeValue font:self.titleLabel.font maxSize:CGSizeMake(100, self.currentBackgroundImage.size.height)];
         buttonFrame.size.width = textSize.width + 10;
         buttonFrame.size.height = self.currentBackgroundImage.size.height;
         self.frame = buttonFrame;

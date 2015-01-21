@@ -128,7 +128,7 @@
     self.timeLabel.text = status.created_at;
     CGFloat timeLabelX = self.statusFrame.nameLabelF.origin.x;
     CGFloat timeLabelY = CGRectGetMaxY(self.statusFrame.nameLabelF) + LJHStatusCellBorder * 0.5;
-    CGSize timeLabelSize = [TextSizeTool sizeWithText:status.created_at font:LJHStatusTimeFont maxSize:LJHStatusMaxSize];
+    CGSize timeLabelSize = [LJHTextSizeTool sizeWithText:status.created_at font:LJHStatusTimeFont maxSize:LJHStatusMaxSize];
 //    CGSize timeLabelSize = [status.created_at sizeWithFont:LJHStatusTimeFont];
     self.timeLabel.frame = (CGRect){{timeLabelX,timeLabelY}, timeLabelSize};
     
@@ -136,7 +136,7 @@
     self.sourceLabel.text = status.source;
     CGFloat sourceLabelX = CGRectGetMaxX(self.timeLabel.frame) + LJHStatusCellBorder;
     CGFloat sourceLabelY = timeLabelY;
-    CGSize sourceLabelSize = [TextSizeTool sizeWithText:status.source font:LJHStatusSourceFont maxSize:LJHStatusMaxSize];
+    CGSize sourceLabelSize = [LJHTextSizeTool sizeWithText:status.source font:LJHStatusSourceFont maxSize:LJHStatusMaxSize];
 //    CGSize sourceLabelSize = [status.source sizeWithFont:LJHStatusSourceFont];
     self.sourceLabel.frame = (CGRect){{sourceLabelX,sourceLabelY}, sourceLabelSize};
     

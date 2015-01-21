@@ -37,7 +37,7 @@
     //3.昵称
     CGFloat nameLabelX = CGRectGetMaxX(_iconViewF) + LJHStatusCellBorder;
     CGFloat nameLabelY = iconViewY;
-    CGSize nameLabelSize = [TextSizeTool sizeWithText:status.user.name font:LJHStatusNameFont maxSize:LJHStatusMaxSize];
+    CGSize nameLabelSize = [LJHTextSizeTool sizeWithText:status.user.name font:LJHStatusNameFont maxSize:LJHStatusMaxSize];
 //    CGSize nameLabelSize = [status.user.name sizeWithFont:LJHStatusNameFont];
     _nameLabelF = (CGRect){{nameLabelX,nameLabelY}, nameLabelSize};
     
@@ -54,14 +54,14 @@
     //5.时间
     CGFloat timeLabelX = nameLabelX;
     CGFloat timeLabelY = CGRectGetMaxY(_nameLabelF) + LJHStatusCellBorder * 0.5;
-    CGSize timeLabelSize = [TextSizeTool sizeWithText:status.created_at font:LJHStatusTimeFont maxSize:LJHStatusMaxSize];
+    CGSize timeLabelSize = [LJHTextSizeTool sizeWithText:status.created_at font:LJHStatusTimeFont maxSize:LJHStatusMaxSize];
 //    CGSize timeLabelSize = [status.created_at sizeWithFont:LJHStatusTimeFont];
     _timeLabelF = (CGRect){{timeLabelX,timeLabelY}, timeLabelSize};
     
     //6.来源
     CGFloat sourceLabelX = CGRectGetMaxX(_timeLabelF) + LJHStatusCellBorder;
     CGFloat sourceLabelY = timeLabelY;
-    CGSize sourceLabelSize = [TextSizeTool sizeWithText:status.source font:LJHStatusSourceFont maxSize:LJHStatusMaxSize];
+    CGSize sourceLabelSize = [LJHTextSizeTool sizeWithText:status.source font:LJHStatusSourceFont maxSize:LJHStatusMaxSize];
 //    CGSize sourceLabelSize = [status.source sizeWithFont:LJHStatusSourceFont];
     _sourceLabelF = (CGRect){{sourceLabelX,sourceLabelY}, sourceLabelSize};
     
@@ -69,7 +69,7 @@
     CGFloat contentLabelX = iconViewX;
     CGFloat contentLabelY = MAX(CGRectGetMaxY(_timeLabelF),CGRectGetMaxY(_iconViewF)) + LJHStatusCellBorder * 0.5;
     CGFloat contentLabelMaxW = topViewW - 2 * LJHStatusCellBorder;
-    CGSize contentLabelSize = [TextSizeTool sizeWithText:status.text font:LJHStatusContentFont maxSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)];
+    CGSize contentLabelSize = [LJHTextSizeTool sizeWithText:status.text font:LJHStatusContentFont maxSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)];
 //    CGSize contentLabelSize = [status.text sizeWithFont:LJHStatusContentFont constrainedToSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)];
     _contentLabelF = (CGRect){{contentLabelX,contentLabelY}, contentLabelSize};
     
@@ -85,7 +85,7 @@
     
     //9.被转发微博
     if (status.retweeted_status) {
-        CGFloat retweetViewW = topViewW - 2 * LJHStatusCellBorder * 0.5;
+        CGFloat retweetViewW = topViewW - 2 * LJHStatusCellBorder;
         CGFloat retweetViewX = contentLabelX;
         CGFloat retweetViewY = CGRectGetMaxY(_contentLabelF) + LJHStatusCellBorder;
         CGFloat retweetViewH = 0;
@@ -94,15 +94,14 @@
         CGFloat retweetNameLabelX = LJHStatusCellBorder;
         CGFloat retweetNameLabelY = LJHStatusCellBorder;
         NSString *name = [NSString stringWithFormat:@"@%@",status.retweeted_status.user.name];
-        CGSize retweetNameLabelSize = [TextSizeTool sizeWithText:name font:LJHRetweetStatusNameFont maxSize:LJHStatusMaxSize];
-//        CGSize retweetNameLabelSize = [name sizeWithFont:LJHRetweetStatusNameFont];
+        CGSize retweetNameLabelSize = [LJHTextSizeTool sizeWithText:name font:LJHRetweetStatusNameFont maxSize:LJHStatusMaxSize];
         _retweetNameLabelF = (CGRect){{retweetNameLabelX,retweetNameLabelY}, retweetNameLabelSize};
         
         //11.被转发微博正文
         CGFloat retweetContentLabelX = retweetNameLabelX;
         CGFloat retweetContentLabelY = CGRectGetMaxY(_retweetNameLabelF) + LJHStatusCellBorder * 0.5;
         CGSize retweetContentLabelMaxSize = CGSizeMake(retweetViewW - 2 * LJHStatusCellBorder, MAXFLOAT);
-        CGSize retweetContentLabelSize = [TextSizeTool sizeWithText:status.retweeted_status.text font:LJHRetweetStatusContentFont maxSize:retweetContentLabelMaxSize];
+        CGSize retweetContentLabelSize = [LJHTextSizeTool sizeWithText:status.retweeted_status.text font:LJHRetweetStatusContentFont maxSize:retweetContentLabelMaxSize];
         _retweetContentLabelF = (CGRect){{retweetContentLabelX,retweetContentLabelY}, retweetContentLabelSize};
    
         //12.被转发微博的配图

@@ -15,7 +15,11 @@
 #import "LJHStatusFrame.h"
 #import "LJHStatusCell.h"
 #import "LJHHomeStatusesParam.h"
+#import "LJHHomeStatusesResult.h"
 #import "LJHStatusTool.h"
+#import "LJHUserInfoParam.h"
+#import "LJHUserInfoResult.h"
+#import "LJHUserTool.h"
 #define LJHTitleButtonDown 0
 #define LJHTitleButtonUp -1
 @interface LJHHomeViewController()
@@ -43,23 +47,18 @@
  */
 - (void)setupUserData{
     
-    // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [LJHAccountTool account].access_token;
-    params[@"uid"] = @([LJHAccountTool account].uid);
-
-    // 2.请求
-    [LJHHttpTool getWithURL:@"https://api.weibo.com/2/users/show.json" params:params success:^(id json) {
-        // 字典转模型
-        LJHUser *user = [LJHUser objectWithKeyValues:json];
+    LJHUserInfoParam *params = [LJHUserInfoParam param];
+    params.uid = @([LJHAccountTool account].uid);
+    
+    [LJHUserTool userInfoWithParam:params success:^(LJHUserInfoResult *result) {
         // 设置标题文字
-        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+        [self.titleButton setTitle:result.name forState:UIControlStateNormal];
         // 保存昵称
         LJHAccount *account = [LJHAccountTool account];
-        account.name = user.name;
+        account.name = result.name;
         [LJHAccountTool saveAccount:account];
     } failure:^(NSError *error) {
-        
+        [MBProgressHUD showError:@"读取用户信息失败"];
     }];
 }
 
@@ -88,21 +87,17 @@
 
 - (void)loadNewData{
     // 1.封装请求参数
-    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];
-    param.access_token = [LJHAccountTool account].access_token;
-    param.count = 5;
+    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];//    param.count = @(5);
     if (self.statusFrames.count) {
         LJHStatusFrame *statusFrame = self.statusFrames[0];
-        param.since_id = [statusFrame.status.idstr longLongValue];
+        param.since_id = @([statusFrame.status.idstr longLongValue]);
     }
     
     // 2.发送请求
-    [LJHStatusTool homeStatusesWithParam:param success:^(id json) {
-        // 将字典数组转为模型数组(里面放的就是IWStatus模型)
-        NSArray *statusArray = [LJHStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
+    [LJHStatusTool homeStatusesWithParam:param success:^(LJHHomeStatusesResult *result) {
         // 创建frame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
-        for (LJHStatus *status in statusArray) {
+        for (LJHStatus *status in result.statuses) {
             LJHStatusFrame *statusFrame = [[LJHStatusFrame alloc] init];
             // 传递微博模型数据
             statusFrame.status = status;
@@ -135,22 +130,18 @@
 
 - (void)loadMoreData{
     // 1.封装请求参数
-    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];
-    param.access_token = [LJHAccountTool account].access_token;
-    param.count = 5;
+    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];//    param.count = @(5);
     if (self.statusFrames.count) {
         LJHStatusFrame *statusFrame = [self.statusFrames lastObject];
         // 加载ID <= max_id的微博
-        param.max_id = [statusFrame.status.idstr longLongValue] - 1;
+        param.max_id = @([statusFrame.status.idstr longLongValue] - 1);
     }
     
-    [LJHStatusTool homeStatusesWithParam:param success:^(id json) {
-        //字典数组转模型数组
-        NSArray *statusArray = [LJHStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
+    [LJHStatusTool homeStatusesWithParam:param success:^(LJHHomeStatusesResult *result) {
         
         //创建statusFrame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
-        for (LJHStatus *status in statusArray) {
+        for (LJHStatus *status in result.statuses) {
             LJHStatusFrame *statusFrame = [[LJHStatusFrame alloc] init];
             statusFrame.status = status;
             [statusFrameArray addObject:statusFrame];
@@ -162,9 +153,9 @@
         
         [self.tableView footerEndRefreshing];
     } failure:^(NSError *error) {
-        LJHLog(@"请求失败 : %@",error);
         [self.tableView footerEndRefreshing];
     }];
+    
 }
 
 - (void)showNewStatusCount:(int)count{

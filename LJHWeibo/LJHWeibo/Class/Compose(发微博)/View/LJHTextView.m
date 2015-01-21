@@ -43,7 +43,7 @@
         CGFloat labelY = 7;
         CGFloat maxW = self.frame.size.width - labelX * 2;
         CGFloat maxH = self.frame.size.height - labelY * 2;
-        CGSize maxSize = [TextSizeTool sizeWithText:placeholder font:self.placeholderLabel.font maxSize:CGSizeMake(maxW, maxH)];
+        CGSize maxSize = [LJHTextSizeTool sizeWithText:placeholder font:self.placeholderLabel.font maxSize:CGSizeMake(maxW, maxH)];
         self.placeholderLabel.frame = CGRectMake(labelX, labelY, maxSize.width, maxSize.height);
     }
     else{

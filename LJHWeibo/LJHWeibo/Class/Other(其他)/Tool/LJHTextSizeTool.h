@@ -1,14 +1,14 @@
 //
-//  TextSizeTool.h
-//  运动助理V1.1
+//  LJHTextSizeTool.h
+//  LJHWeibo
 //
-//  Created by LiJunHui on 14/10/13.
-//  Copyright (c) 2014年 Agents of Shield. All rights reserved.
+//  Created by LeeJunHui on 15/1/21.
+//  Copyright (c) 2015年 Apple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface TextSizeTool : NSObject
+@interface LJHTextSizeTool : NSObject
 /**
  *  根据传进来的文本，字体，和最大的大小进行计算合适的大小
  *
