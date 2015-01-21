@@ -47,7 +47,6 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSString *urlStr = request.URL.absoluteString;
-    LJHLog(@"--url: %@",urlStr);
     NSRange range = [urlStr rangeOfString:@"code="];
     
     if (range.length) {
@@ -77,10 +76,7 @@
  *  通过code换取一个accessToken
  */
 - (void)accessTokenWithCode:(NSString *)code{
-    LJHLog(@"------%@",code);
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //说明服务器返回的是json
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
     NSString *url = @"https://api.weibo.com/oauth2/access_token";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"client_id"] = OAuthAppID;
@@ -88,8 +84,8 @@
     params[@"code"] = code;
     params[@"grant_type"] = @"authorization_code";
     params[@"redirect_uri"] = OAuthRedirectURL;
-    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        
+    
+    [LJHHttpTool postWithURL:url params:params success:^(id json) {
         /*
          "access_token": "ACCESS_TOKEN",
          "expires_in": 1234,
@@ -100,19 +96,20 @@
         /**
          *  字典转模型
          */
-        LJHAccount *account = [LJHAccount accountWithDict:responseObject];
+        LJHAccount *account = [LJHAccount accountWithDict:json];
         
         [LJHAccountTool saveAccount:account];
         
         //判断是否需要显示新特性界面
         [LJHWeiboTool chooseRootController];
         
-        LJHLog(@"请求成功 : %@",responseObject);
+        //        LJHLog(@"请求成功 : %@",responseObject);
         [MBProgressHUD hideHUD];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        LJHLog(@"请求失败 : %@",error);
+    } failure:^(NSError *error) {
+        //        LJHLog(@"请求失败 : %@",error);
         [MBProgressHUD hideHUD];
     }];
+    
 }
 
 @end

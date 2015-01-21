@@ -57,6 +57,7 @@
 		2D56427F1A6CE35200DC13B9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D56427C1A6CE35200DC13B9 /* MBProgressHUD.m */; };
 		2D9D32001A62B1E700CCA7D5 /* NSDate+LJH.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D31FF1A62B1E700CCA7D5 /* NSDate+LJH.m */; };
 		2D9D32031A62BCCF00CCA7D5 /* LJHStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D32021A62BCCF00CCA7D5 /* LJHStatusToolBar.m */; };
+		2DBE4B411A6F955600F7E2B5 /* LJHHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B401A6F955600F7E2B5 /* LJHHttpTool.m */; };
 		2DD6AA881A6271D5001FF559 /* LJHStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6AA871A6271D5001FF559 /* LJHStatusFrame.m */; };
 		2DE550681A5FF83C00DBCB15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550671A5FF83C00DBCB15 /* Foundation.framework */; };
 		2DE5506A1A5FF83C00DBCB15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */; };
@@ -195,6 +196,8 @@
 		2D9D31FF1A62B1E700CCA7D5 /* NSDate+LJH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LJH.m"; sourceTree = "<group>"; };
 		2D9D32011A62BCCF00CCA7D5 /* LJHStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusToolBar.h; sourceTree = "<group>"; };
 		2D9D32021A62BCCF00CCA7D5 /* LJHStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHStatusToolBar.m; sourceTree = "<group>"; };
+		2DBE4B3F1A6F955600F7E2B5 /* LJHHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHHttpTool.h; sourceTree = "<group>"; };
+		2DBE4B401A6F955600F7E2B5 /* LJHHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHHttpTool.m; sourceTree = "<group>"; };
 		2DD6AA861A6271D5001FF559 /* LJHStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusFrame.h; sourceTree = "<group>"; };
 		2DD6AA871A6271D5001FF559 /* LJHStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHStatusFrame.m; sourceTree = "<group>"; };
 		2DE550641A5FF83B00DBCB15 /* LJHWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJHWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -352,6 +355,15 @@
 				2D56427C1A6CE35200DC13B9 /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		2DBE4B3E1A6F953D00F7E2B5 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				2DBE4B3F1A6F955600F7E2B5 /* LJHHttpTool.h */,
+				2DBE4B401A6F955600F7E2B5 /* LJHHttpTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		2DE5505B1A5FF83B00DBCB15 = {
@@ -701,6 +713,7 @@
 		2DE550B31A5FFA2100DBCB15 /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
+				2DBE4B3E1A6F953D00F7E2B5 /* Tool */,
 				2D0EEE781A60E7F700D2680D /* lib */,
 				2DE550B41A5FFA2100DBCB15 /* Category */,
 				2DE550B51A5FFA2100DBCB15 /* LJHAppDelegate.h */,
@@ -982,6 +995,7 @@
 				2DE550BD1A60041400DBCB15 /* LJHTabBarController.m in Sources */,
 				2D28C3581A67B55D0038587F /* SDWebImageManager+MJ.m in Sources */,
 				2D4F66E61A60053600A3D805 /* LJHMeViewController.m in Sources */,
+				2DBE4B411A6F955600F7E2B5 /* LJHHttpTool.m in Sources */,
 				2DFBC5991A6A540E0057943D /* MJRefreshFooterView.m in Sources */,
 				2D4F66E01A60051300A3D805 /* LJHMessageViewController.m in Sources */,
 				2DFBC59B1A6A540E0057943D /* UIScrollView+MJExtension.m in Sources */,

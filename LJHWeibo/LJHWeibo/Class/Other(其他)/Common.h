@@ -17,6 +17,7 @@
 #import "MJExtension.h"
 #import "MJRefresh.h"
 #import "MBProgressHUD+MJ.h"
+#import "LJHHttpTool.h"
 
 //判断是否是iOS7
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
@@ -28,6 +29,8 @@
 #else
 #define LJHLog(...)
 #endif
+
+
 
 #define LJHNotificationCenter [NSNotificationCenter defaultCenter]
 

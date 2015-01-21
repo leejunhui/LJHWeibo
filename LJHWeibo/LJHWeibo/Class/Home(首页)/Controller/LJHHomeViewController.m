@@ -40,28 +40,25 @@
  *  读取用户信息
  */
 - (void)setupUserData{
-    // 1.创建请求管理对象
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
-    // 2.封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [LJHAccountTool account].access_token;
     params[@"uid"] = @([LJHAccountTool account].uid);
     
-    // 3.发送请求
-    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         // 字典转模型
-         LJHUser *user = [LJHUser objectWithKeyValues:responseObject];
-         // 设置标题文字
-         [self.titleButton setTitle:user.name forState:UIControlStateNormal];
-         // 保存昵称
-         LJHAccount *account = [LJHAccountTool account];
-         account.name = user.name;
-         [LJHAccountTool saveAccount:account];
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         
-     }];
+    // 2.请求
+    [LJHHttpTool getWithURL:@"https://api.weibo.com/2/users/show.json" params:params success:^(id json) {
+        // 字典转模型
+        LJHUser *user = [LJHUser objectWithKeyValues:json];
+        // 设置标题文字
+        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+        // 保存昵称
+        LJHAccount *account = [LJHAccountTool account];
+        account.name = user.name;
+        [LJHAccountTool saveAccount:account];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)setupRefresh{
@@ -88,10 +85,8 @@
 }
 
 - (void)loadNewData{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //说明服务器返回的是json
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     LJHAccount *account = [LJHAccountTool account];
     params[@"access_token"] = account.access_token;
@@ -101,9 +96,10 @@
         params[@"since_id"] = statusFrame.status.idstr;
     }
     
-    [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    // 2.请求
+    [LJHHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
         //字典数组转模型数组
-        NSArray *statusArray = [LJHStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusArray = [LJHStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         
         //创建statusFrame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
@@ -124,32 +120,29 @@
         [self.tableView headerEndRefreshing];
         
         [self showNewStatusCount:(int)statusFrameArray.count];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         LJHLog(@"请求失败 : %@",error);
         [self.tableView headerEndRefreshing];
     }];
 }
 
 - (void)loadMoreData{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //说明服务器返回的是json
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     LJHAccount *account = [LJHAccountTool account];
     params[@"access_token"] = account.access_token;
     params[@"count"] = [NSString stringWithFormat:@"%d",5];
-    
     if (self.statuFrames.count) {
         LJHStatusFrame *statusFrame = [self.statuFrames lastObject];
         long long  max_id = [statusFrame.status.idstr longLongValue] - 1;
         params[@"max_id"] = @(max_id);
     }
     
-    [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    // 2.请求
+    [LJHHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
         
         //字典数组转模型数组
-        NSArray *statusArray = [LJHStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusArray = [LJHStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         
         //创建statusFrame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
@@ -164,10 +157,11 @@
         [self.tableView reloadData];
         
         [self.tableView footerEndRefreshing];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         LJHLog(@"请求失败 : %@",error);
         [self.tableView footerEndRefreshing];
     }];
+
 }
 
 - (void)showNewStatusCount:(int)count{
@@ -288,7 +282,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view.backgroundColor = [UIColor grayColor];
-//    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end
