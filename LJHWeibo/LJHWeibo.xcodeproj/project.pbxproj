@@ -10,6 +10,8 @@
 		2D023F0C1A64112600E4215B /* LJHReweetStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D023F0B1A64112600E4215B /* LJHReweetStatusView.m */; };
 		2D023F0F1A64159800E4215B /* LJHStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D023F0E1A64159800E4215B /* LJHStatusTopView.m */; };
 		2D023F121A641CCA00E4215B /* LJHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D023F111A641CCA00E4215B /* LJHPhoto.m */; };
+		2D0C10511A7099840043093D /* LJHUserUnreadCountParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0C10501A7099840043093D /* LJHUserUnreadCountParam.m */; };
+		2D0C10541A7099940043093D /* LJHUserUnreadCountResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0C10531A7099940043093D /* LJHUserUnreadCountResult.m */; };
 		2D0C87441A61188A00725FC9 /* LJHStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0C87431A61188A00725FC9 /* LJHStatusCell.m */; };
 		2D0EEE741A60E7DB00D2680D /* LJHStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0EEE731A60E7DB00D2680D /* LJHStatus.m */; };
 		2D0EEE771A60E7E400D2680D /* LJHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0EEE761A60E7E400D2680D /* LJHUser.m */; };
@@ -115,6 +117,10 @@
 		2D023F0E1A64159800E4215B /* LJHStatusTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHStatusTopView.m; sourceTree = "<group>"; };
 		2D023F101A641CCA00E4215B /* LJHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHPhoto.h; sourceTree = "<group>"; };
 		2D023F111A641CCA00E4215B /* LJHPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHPhoto.m; sourceTree = "<group>"; };
+		2D0C104F1A7099840043093D /* LJHUserUnreadCountParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHUserUnreadCountParam.h; sourceTree = "<group>"; };
+		2D0C10501A7099840043093D /* LJHUserUnreadCountParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHUserUnreadCountParam.m; sourceTree = "<group>"; };
+		2D0C10521A7099940043093D /* LJHUserUnreadCountResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHUserUnreadCountResult.h; sourceTree = "<group>"; };
+		2D0C10531A7099940043093D /* LJHUserUnreadCountResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHUserUnreadCountResult.m; sourceTree = "<group>"; };
 		2D0C87421A61188A00725FC9 /* LJHStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusCell.h; sourceTree = "<group>"; };
 		2D0C87431A61188A00725FC9 /* LJHStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHStatusCell.m; sourceTree = "<group>"; };
 		2D0EEE721A60E7DB00D2680D /* LJHStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatus.h; sourceTree = "<group>"; };
@@ -175,8 +181,6 @@
 		2D4F66EE1A60176100A3D805 /* LJHTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHTabBarButton.m; sourceTree = "<group>"; };
 		2D4F66F01A601E9E00A3D805 /* LJHBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHBadgeButton.h; sourceTree = "<group>"; };
 		2D4F66F11A601E9E00A3D805 /* LJHBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHBadgeButton.m; sourceTree = "<group>"; };
-		2D4F66F31A60392B00A3D805 /* TextSizeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextSizeTool.h; path = "../../Other(其他)/TextSizeTool.h"; sourceTree = "<group>"; };
-		2D4F66F41A60392B00A3D805 /* TextSizeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextSizeTool.m; path = "../../Other(其他)/TextSizeTool.m"; sourceTree = "<group>"; };
 		2D4F66F71A603DBE00A3D805 /* LJHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHNavigationController.h; sourceTree = "<group>"; };
 		2D4F66F81A603DBE00A3D805 /* LJHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHNavigationController.m; sourceTree = "<group>"; };
 		2D4F66FB1A60457300A3D805 /* UIBarButtonItem+LJH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+LJH.h"; sourceTree = "<group>"; };
@@ -368,8 +372,6 @@
 		2D4F66F61A60396600A3D805 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				2D4F66F31A60392B00A3D805 /* TextSizeTool.h */,
-				2D4F66F41A60392B00A3D805 /* TextSizeTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -673,6 +675,10 @@
 		2DE550A11A5FFA2100DBCB15 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2D0C104F1A7099840043093D /* LJHUserUnreadCountParam.h */,
+				2D0C10501A7099840043093D /* LJHUserUnreadCountParam.m */,
+				2D0C10521A7099940043093D /* LJHUserUnreadCountResult.h */,
+				2D0C10531A7099940043093D /* LJHUserUnreadCountResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1058,6 +1064,7 @@
 				2DBE4B5E1A6FA8AD00F7E2B5 /* LJHWeiboTool.m in Sources */,
 				2D28C33D1A67AD8C0038587F /* LJHPhotoView.m in Sources */,
 				2D5642761A6CE19E00DC13B9 /* LJHComposeImageViews.m in Sources */,
+				2D0C10541A7099940043093D /* LJHUserUnreadCountResult.m in Sources */,
 				2D56427F1A6CE35200DC13B9 /* MBProgressHUD.m in Sources */,
 				2D0EEE771A60E7E400D2680D /* LJHUser.m in Sources */,
 				2D0EEE911A60E81800D2680D /* MJType.m in Sources */,
@@ -1101,6 +1108,7 @@
 				2DFBC5971A6A540E0057943D /* MJRefreshBaseView.m in Sources */,
 				2D023F0C1A64112600E4215B /* LJHReweetStatusView.m in Sources */,
 				2D4F66EC1A6011DD00A3D805 /* LJHTabBar.m in Sources */,
+				2D0C10511A7099840043093D /* LJHUserUnreadCountParam.m in Sources */,
 				2D56426A1A6CB2FB00DC13B9 /* LJHComposeToolBar.m in Sources */,
 				2D4F66FD1A60457300A3D805 /* UIBarButtonItem+LJH.m in Sources */,
 				2D4F66F21A601E9E00A3D805 /* LJHBadgeButton.m in Sources */,

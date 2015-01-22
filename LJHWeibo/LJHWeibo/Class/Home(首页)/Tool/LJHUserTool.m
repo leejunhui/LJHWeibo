@@ -21,4 +21,17 @@
     }];
 }
 
++ (void)userUnreadCountWithParam:(LJHUserUnreadCountParam *)param success:(void (^)(LJHUserUnreadCountResult *))success failure:(void (^)(NSError *))failure{
+    [LJHHttpTool getWithURL:@"https://rm.api.weibo.com/2/remind/unread_count.json" params:param.keyValues success:^(id json) {
+        if (success) {
+            LJHUserUnreadCountResult *result = [LJHUserUnreadCountResult objectWithKeyValues:json];
+            success(result);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 @end

@@ -86,6 +86,10 @@
 }
 
 - (void)loadNewData{
+    
+    // 0.清除未读数
+    self.tabBarItem.badgeValue = nil;
+    
     // 1.封装请求参数
     LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];//    param.count = @(5);
     if (self.statusFrames.count) {
@@ -126,6 +130,12 @@
         // 让刷新控件停止显示刷新状态
         [self.tableView headerEndRefreshing];
     }];
+}
+
+- (void)unreadCount{
+    if ([self.tabBarItem.badgeValue intValue]) {
+        [self.tableView headerBeginRefreshing];
+    }
 }
 
 - (void)loadMoreData{

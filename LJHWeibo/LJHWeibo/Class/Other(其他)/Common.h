@@ -22,6 +22,8 @@
 
 //判断是否是iOS7
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+//判断是否是iOS8
+#define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
 //取色
 #define LJHColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 //自定义日志输出

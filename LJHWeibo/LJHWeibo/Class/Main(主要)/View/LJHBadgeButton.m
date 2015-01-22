@@ -26,13 +26,13 @@
 - (void)setBadgeValue:(NSString *)badgeValue{
     _badgeValue = [badgeValue copy];
     
-    if(badgeValue)
+    if(badgeValue && badgeValue != 0)
     {
         self.hidden = NO;
         [self setTitle:badgeValue forState:UIControlStateNormal];
         CGRect buttonFrame = self.frame;
         CGSize textSize = [LJHTextSizeTool sizeWithText:badgeValue font:self.titleLabel.font maxSize:CGSizeMake(100, self.currentBackgroundImage.size.height)];
-        buttonFrame.size.width = textSize.width + 10;
+        buttonFrame.size.width = textSize.width + 15;
         buttonFrame.size.height = self.currentBackgroundImage.size.height;
         self.frame = buttonFrame;
     }

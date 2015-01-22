@@ -15,8 +15,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];  
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     [self.window makeKeyAndVisible];
+    
+    if(iOS8)
+    {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound  categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
     
     //判断是否已授权
     LJHAccount *account = [LJHAccountTool account];
@@ -41,6 +48,12 @@
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
     [[SDWebImageManager sharedManager] cancelAll];
     [[SDWebImageManager sharedManager].imageCache clearMemory];;
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application{
+    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        
+    }];
 }
 
 
