@@ -22,3 +22,8 @@ Complete the display of the photo of the Weibo.
 Configure the pull refresh and new Weibo notify.
 #Day 9
 Complete the refresh and the user name bug.
+#Day 10
+Encapsulate the operation of network and serverice
+#Day 11
+Implement the badgeValue of the new statues.
+
