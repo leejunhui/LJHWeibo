@@ -55,7 +55,12 @@
  *  通过定时器来请求未读消息数
  */
 - (void)checkUnreadCount{
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(unreadCount) userInfo:nil repeats:YES];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(unreadCount) userInfo:nil repeats:YES];
+    /**
+     *  这句代码的作用是让定时器在子线程中执行，不会阻塞主线程
+     */
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)unreadCount{
@@ -84,38 +89,38 @@
 /**
  *  推送本地通知
  */
-- (void)pushLocalNotification
-{
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    if (notification) {
-        // 设置通知的提醒时间
-        NSDate *currentDate   = [NSDate date];
-        notification.timeZone = [NSTimeZone defaultTimeZone]; // 使用本地时区
-        notification.fireDate = currentDate;
-        
-        // 设置重复间隔
-        notification.repeatInterval = NSCalendarUnitSecond;
-        
-        // 设置提醒的文字内容
-        notification.alertBody   = @"你有新的微博";
-        notification.alertAction = NSLocalizedString(@"看看呗", nil);
-        
-        // 通知提示音 使用默认的
-        notification.soundName= UILocalNotificationDefaultSoundName;
-        
-        // 设置应用程序右上角的提醒个数
-        notification.applicationIconBadgeNumber++;
-        
-        // 设定通知的userInfo，用来标识该通知
-        //                NSMutableDictionary *aUserInfo = [[NSMutableDictionary alloc] init];
-        //                aUserInfo[@"LocalNotificationID"] = @"LocalNotificationID";
-        //                notification.userInfo = aUserInfo;
-        
-        // 将通知添加到系统中
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    }
-
-}
+//- (void)pushLocalNotification
+//{
+//    UILocalNotification *notification = [[UILocalNotification alloc] init];
+//    if (notification) {
+//        // 设置通知的提醒时间
+//        NSDate *currentDate   = [NSDate date];
+//        notification.timeZone = [NSTimeZone defaultTimeZone]; // 使用本地时区
+//        notification.fireDate = currentDate;
+//        
+//        // 设置重复间隔
+//        notification.repeatInterval = NSCalendarUnitSecond;
+//        
+//        // 设置提醒的文字内容
+//        notification.alertBody   = @"你有新的微博";
+//        notification.alertAction = NSLocalizedString(@"看看呗", nil);
+//        
+//        // 通知提示音 使用默认的
+//        notification.soundName= UILocalNotificationDefaultSoundName;
+//        
+//        // 设置应用程序右上角的提醒个数
+//        notification.applicationIconBadgeNumber++;
+//        
+//        // 设定通知的userInfo，用来标识该通知
+//        //                NSMutableDictionary *aUserInfo = [[NSMutableDictionary alloc] init];
+//        //                aUserInfo[@"LocalNotificationID"] = @"LocalNotificationID";
+//        //                notification.userInfo = aUserInfo;
+//        
+//        // 将通知添加到系统中
+//        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+//    }
+//
+//}
 
 /**
  *  加载自定义TabBar

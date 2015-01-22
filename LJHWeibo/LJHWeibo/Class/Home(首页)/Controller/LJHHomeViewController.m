@@ -89,6 +89,7 @@
     
     // 0.清除未读数
     self.tabBarItem.badgeValue = nil;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
     // 1.封装请求参数
     LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];//    param.count = @(5);
