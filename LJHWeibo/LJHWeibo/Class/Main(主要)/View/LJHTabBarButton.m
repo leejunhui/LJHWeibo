@@ -64,7 +64,7 @@
     [self setImage:self.item.selectedImage forState:UIControlStateSelected];
     self.badgeButton.badgeValue = self.item.badgeValue;
     CGRect buttonF = self.badgeButton.frame;
-    buttonF.origin.x = self.frame.size.width - buttonF.size.width - 5;
+    buttonF.origin.x = self.frame.size.width - buttonF.size.width - 10;
     buttonF.origin.y = 0;
     self.badgeButton.frame = buttonF;
 }

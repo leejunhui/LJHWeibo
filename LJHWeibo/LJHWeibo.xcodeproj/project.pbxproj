@@ -55,6 +55,8 @@
 		2D56427D1A6CE35200DC13B9 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5642791A6CE35200DC13B9 /* MBProgressHUD+MJ.m */; };
 		2D56427E1A6CE35200DC13B9 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D56427A1A6CE35200DC13B9 /* MBProgressHUD.bundle */; };
 		2D56427F1A6CE35200DC13B9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D56427C1A6CE35200DC13B9 /* MBProgressHUD.m */; };
+		2D6A95571A72071E00C76D40 /* LJHCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A95561A72071E00C76D40 /* LJHCacheTool.m */; };
+		2D6A95591A72090100C76D40 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6A95581A72090100C76D40 /* libsqlite3.dylib */; };
 		2D9D32001A62B1E700CCA7D5 /* NSDate+LJH.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D31FF1A62B1E700CCA7D5 /* NSDate+LJH.m */; };
 		2D9D32031A62BCCF00CCA7D5 /* LJHStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D32021A62BCCF00CCA7D5 /* LJHStatusToolBar.m */; };
 		2DBE4B411A6F955600F7E2B5 /* LJHHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4B401A6F955600F7E2B5 /* LJHHttpTool.m */; };
@@ -206,6 +208,9 @@
 		2D56427A1A6CE35200DC13B9 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		2D56427B1A6CE35200DC13B9 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		2D56427C1A6CE35200DC13B9 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		2D6A95551A72071E00C76D40 /* LJHCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHCacheTool.h; sourceTree = "<group>"; };
+		2D6A95561A72071E00C76D40 /* LJHCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJHCacheTool.m; sourceTree = "<group>"; };
+		2D6A95581A72090100C76D40 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2D9D31FE1A62B1E700CCA7D5 /* NSDate+LJH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LJH.h"; sourceTree = "<group>"; };
 		2D9D31FF1A62B1E700CCA7D5 /* NSDate+LJH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LJH.m"; sourceTree = "<group>"; };
 		2D9D32011A62BCCF00CCA7D5 /* LJHStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJHStatusToolBar.h; sourceTree = "<group>"; };
@@ -290,6 +295,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D6A95591A72090100C76D40 /* libsqlite3.dylib in Frameworks */,
 				2DE5506A1A5FF83C00DBCB15 /* CoreGraphics.framework in Frameworks */,
 				2DE5506C1A5FF83C00DBCB15 /* UIKit.framework in Frameworks */,
 				2DE550681A5FF83C00DBCB15 /* Foundation.framework in Frameworks */,
@@ -419,6 +425,8 @@
 				2DBE4B441A6F9A7A00F7E2B5 /* LJHStatusTool.m */,
 				2DBE4B641A6FA9BB00F7E2B5 /* LJHUserTool.h */,
 				2DBE4B651A6FA9BB00F7E2B5 /* LJHUserTool.m */,
+				2D6A95551A72071E00C76D40 /* LJHCacheTool.h */,
+				2D6A95561A72071E00C76D40 /* LJHCacheTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -495,6 +503,7 @@
 		2DE550661A5FF83B00DBCB15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D6A95581A72090100C76D40 /* libsqlite3.dylib */,
 				2DE550671A5FF83C00DBCB15 /* Foundation.framework */,
 				2DE550691A5FF83C00DBCB15 /* CoreGraphics.framework */,
 				2DE5506B1A5FF83C00DBCB15 /* UIKit.framework */,
@@ -1056,6 +1065,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D0EEE951A60E81800D2680D /* NSObject+MJMember.m in Sources */,
+				2D6A95571A72071E00C76D40 /* LJHCacheTool.m in Sources */,
 				2D28C3511A67B55D0038587F /* MJPhoto.m in Sources */,
 				2D0EEE8F1A60E81800D2680D /* MJMember.m in Sources */,
 				2D28C3551A67B55D0038587F /* MJPhotoProgressView.m in Sources */,

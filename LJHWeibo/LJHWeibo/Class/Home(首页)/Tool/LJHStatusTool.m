@@ -8,19 +8,38 @@
 
 #import "LJHStatusTool.h"
 #import "LJHHttpTool.h"
+#import "LJHCacheTool.h"
 @implementation LJHStatusTool
 + (void)homeStatusesWithParam:(LJHHomeStatusesParam *)param success:(void (^)(LJHHomeStatusesResult *result))success failure:(void (^)(NSError *))failure
 {
-    [LJHHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:param.keyValues success:^(id json) {
+    // 1.先从缓存里面加载
+    NSArray *statusArray = [LJHCacheTool statuesWithParam:param];
+    if (statusArray.count) { // 有缓存
+        // 传递了block
         if (success) {
-            LJHHomeStatusesResult *result = [LJHHomeStatusesResult objectWithKeyValues:json];
+            LJHHomeStatusesResult *result = [[LJHHomeStatusesResult alloc] init];
+            result.statuses = statusArray;
             success(result);
         }
-    } failure:^(NSError *error) {
-        if (failure) {
-            failure(error);
-        }
-    }];
+    }
+    else {
+        [LJHHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:param.keyValues success:^(id json) {
+            if (success) {
+                
+                
+                LJHHomeStatusesResult *result = [LJHHomeStatusesResult objectWithKeyValues:json];
+                // 缓存
+                [LJHCacheTool addStatuses:result.statuses];
+
+                
+                success(result);
+            }
+        } failure:^(NSError *error) {
+            if (failure) {
+                failure(error);
+            }
+        }];
+    }
 }
 
 + (void)sendStatusWithParam:(LJHSendStatusParam *)param success:(void (^)(LJHSendStatusResult *))success failure:(void (^)(NSError *))failure{

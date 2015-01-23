@@ -73,14 +73,16 @@
         }
         if (result.messageCount) {
             self.message.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.messageCount];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = result.messageCount;
+        }
+        else{
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         }
         if (result.follower) {
             self.me.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.follower];
         }
-        if (result.count) {
-            [UIApplication sharedApplication].applicationIconBadgeNumber = result.count;
-            }
-        NSLog(@"%d",result.count);
+
+        NSLog(@"%d",result.status);
     } failure:^(NSError *error) {
         
     }];
