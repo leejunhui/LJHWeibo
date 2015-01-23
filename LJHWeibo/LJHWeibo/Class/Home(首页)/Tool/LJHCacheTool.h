@@ -15,7 +15,7 @@
  *
  *  @param status 需要缓存的微博数据
  */
-+ (void)addStatus:(LJHStatus *)status;
++ (void)addStatus:(NSDictionary *)dict;
 
 /**
  *  缓存N条微博

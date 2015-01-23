@@ -58,7 +58,7 @@
         account.name = result.name;
         [LJHAccountTool saveAccount:account];
     } failure:^(NSError *error) {
-        [MBProgressHUD showError:@"读取用户信息失败"];
+//        [MBProgressHUD showError:@"读取用户信息失败"];
     }];
 }
 
@@ -91,11 +91,15 @@
     self.tabBarItem.badgeValue = nil;
     
     // 1.封装请求参数
-    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];//    param.count = @(5);
+    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];
+    param.count = @(20);
     if (self.statusFrames.count) {
         LJHStatusFrame *statusFrame = self.statusFrames[0];
         param.since_id = @([statusFrame.status.idstr longLongValue]);
+        
     }
+    
+    NSLog(@"%@ %@ %@",param.since_id, param.max_id,param.count);
     
     // 2.发送请求
     [LJHStatusTool homeStatusesWithParam:param success:^(LJHHomeStatusesResult *result) {
@@ -140,7 +144,8 @@
 
 - (void)loadMoreData{
     // 1.封装请求参数
-    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];//    param.count = @(5);
+    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];
+        param.count = @(20);
     if (self.statusFrames.count) {
         LJHStatusFrame *statusFrame = [self.statusFrames lastObject];
         // 加载ID <= max_id的微博

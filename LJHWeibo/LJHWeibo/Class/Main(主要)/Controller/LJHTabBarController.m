@@ -82,7 +82,7 @@
             self.me.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.follower];
         }
 
-        NSLog(@"%d",result.status);
+//        NSLog(@"%d",result.status);
     } failure:^(NSError *error) {
         
     }];

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class LJHUser;
-@interface LJHStatus : NSObject
+@interface LJHStatus : NSObject<NSCoding>
 /**
  *  微博id
  */

@@ -12,13 +12,14 @@
 @implementation LJHStatusTool
 + (void)homeStatusesWithParam:(LJHHomeStatusesParam *)param success:(void (^)(LJHHomeStatusesResult *result))success failure:(void (^)(NSError *))failure
 {
-    // 1.先从缓存里面加载
+//     1.先从缓存里面加载
     NSArray *statusArray = [LJHCacheTool statuesWithParam:param];
+    NSLog(@"数据库内有多少条%d",(int)statusArray.count);
     if (statusArray.count) { // 有缓存
         // 传递了block
         if (success) {
             LJHHomeStatusesResult *result = [[LJHHomeStatusesResult alloc] init];
-            result.statuses = statusArray;
+            result.statuses = [LJHStatus objectArrayWithKeyValuesArray:statusArray];
             success(result);
         }
     }
@@ -29,7 +30,7 @@
                 
                 LJHHomeStatusesResult *result = [LJHHomeStatusesResult objectWithKeyValues:json];
                 // 缓存
-                [LJHCacheTool addStatuses:result.statuses];
+                [LJHCacheTool addStatuses:json[@"statuses"]];
 
                 
                 success(result);

@@ -65,8 +65,37 @@ EEE MMM dd HH:mm:ss Z yyyy
         int length = (int)[source rangeOfString:@"</"].location - startLoc;
         _source =  [NSString stringWithFormat:@"来自%@",[source substringWithRange:NSMakeRange(startLoc, length)]];
     }
-
 }
+
+//- (id)initWithCoder:(NSCoder *)aDecoder{
+//    if (self = [super init]) {
+//        self.idstr = [aDecoder decodeObjectForKey:@"idstr"];
+//        self.text = [aDecoder decodeObjectForKey:@"text"];
+//        self.source = [aDecoder decodeObjectForKey:@"source"];
+//        self.created_at = [aDecoder decodeObjectForKey:@"created_at"];
+//        self.reposts_count = [aDecoder decodeIntForKey:@"reposts_count"];
+//        self.comments_count = [aDecoder decodeIntForKey:@"comments_count"];
+//        self.attitudes_count = [aDecoder decodeIntForKey:@"attitudes_count"];
+//        self.user = [aDecoder decodeObjectForKey:@"user"];
+//        self.pic_urls = [aDecoder decodeObjectForKey:@"pic_urls"];
+//        self.retweeted_status = [aDecoder decodeObjectForKey:@"retweeted_status"];
+//    }
+//    return self;
+//}
+//
+//
+//- (void)encodeWithCoder:(NSCoder *)aCoder{
+//    [aCoder encodeObject:self.idstr forKey:@"idstr"];
+//    [aCoder encodeObject:self.text forKey:@"text"];
+//    [aCoder encodeObject:self.source forKey:@"source"];
+//    [aCoder encodeObject:self.created_at forKey:@"created_at"];
+//    [aCoder encodeInt:self.reposts_count forKey:@"reposts_count"];
+//    [aCoder encodeInt:self.comments_count forKey:@"comments_count"];
+//    [aCoder encodeInt:self.attitudes_count forKey:@"attitudes_count"];
+//    [aCoder encodeObject:self.user forKey:@"user"];
+//    [aCoder encodeObject:self.pic_urls forKey:@"pic_urls"];
+//    [aCoder encodeObject:self.retweeted_status forKey:@"retweeted_status"];
+//}
 
 
 @end
