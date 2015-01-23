@@ -15,6 +15,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.isCached = NO;
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [self.window makeKeyAndVisible];
@@ -38,6 +40,26 @@
         self.window.rootViewController = [[LJHOAuthViewController alloc] init];
     }
 
+    //4.监控网络状态
+    AFNetworkReachabilityManager *mgr=[AFNetworkReachabilityManager sharedManager];
+    //当网络状态改变的时候，就会调用
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown://未知网络
+            case AFNetworkReachabilityStatusNotReachable://没有网络
+                LJHLog(@"没有网络（断网）");
+                [MBProgressHUD showError:@"网络异常，请检查网络设置！"];
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN://手机自带网络
+                LJHLog(@"手机自带网络");
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi://WIFI
+                LJHLog(@"WIFI");
+                break;
+        }
+    }];
+    //开始监控
+    [mgr startMonitoring];
     
     return YES;
 }

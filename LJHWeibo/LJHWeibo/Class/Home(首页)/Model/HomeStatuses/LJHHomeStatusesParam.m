@@ -9,5 +9,8 @@
 #import "LJHHomeStatusesParam.h"
 
 @implementation LJHHomeStatusesParam
-
+- (NSNumber *)count
+{
+    return _count ? _count : @20;
+}
 @end

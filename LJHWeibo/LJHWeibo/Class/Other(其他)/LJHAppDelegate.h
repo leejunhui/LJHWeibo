@@ -11,5 +11,8 @@
 @interface LJHAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+/**
+ *  是否缓存过
+ */
+@property (assign, nonatomic) BOOL isCached;
 @end

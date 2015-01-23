@@ -20,6 +20,7 @@
 #import "LJHUserInfoParam.h"
 #import "LJHUserInfoResult.h"
 #import "LJHUserTool.h"
+#import "LJHCacheTool.h"
 #define LJHTitleButtonDown 0
 #define LJHTitleButtonUp -1
 @interface LJHHomeViewController()
@@ -40,6 +41,57 @@
     [self setupUserData];
     [self setupRefresh];
     [self setupNav];
+    [self setupCache];
+}
+
+/**
+ *  配置缓存
+ */
+- (void)setupCache{
+    // 1.封装请求参数
+    LJHHomeStatusesParam *param = [[LJHHomeStatusesParam alloc] init];
+    if (self.statusFrames.count) {
+        LJHStatusFrame *statusFrame = self.statusFrames[0];
+        param.since_id = @([statusFrame.status.idstr longLongValue]);
+        
+    }
+    
+    NSArray *statusArray = [LJHCacheTool statuesWithParam:param];
+    NSLog(@"数据库内有多少条%d",(int)statusArray.count);
+    if (statusArray.count) { // 有缓存
+        LJHHomeStatusesResult *result = [[LJHHomeStatusesResult alloc] init];
+        result.statuses = [LJHStatus objectArrayWithKeyValuesArray:statusArray];
+        // 创建frame模型对象
+        NSMutableArray *statusFrameArray = [NSMutableArray array];
+        for (LJHStatus *status in result.statuses) {
+            LJHStatusFrame *statusFrame = [[LJHStatusFrame alloc] init];
+            // 传递微博模型数据
+            statusFrame.status = status;
+            [statusFrameArray addObject:statusFrame];
+        }
+        
+        // 将最新的数据追加到旧数据的最前面
+        // 旧数据: self.statusFrames
+        // 新数据: statusFrameArray
+        NSMutableArray *tempArray = [NSMutableArray array];
+        // 添加statusFrameArray的所有元素 添加到 tempArray中
+        [tempArray addObjectsFromArray:statusFrameArray];
+        // 添加self.statusFrames的所有元素 添加到 tempArray中
+        [tempArray addObjectsFromArray:self.statusFrames];
+        self.statusFrames = tempArray;
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 让刷新控件停止显示刷新状态
+        [self.tableView headerEndRefreshing];
+        
+        // 显示最新微博的数量(给用户一些友善的提示)
+//        [self showNewStatusCount:(int)statusFrameArray.count];
+    }
+    else {
+        [self.tableView headerBeginRefreshing];
+    }
 }
 
 /**
@@ -64,7 +116,7 @@
 
 - (void)setupRefresh{
     [self.tableView addHeaderWithTarget:self action:@selector(headerRefreshing)];
-    [self.tableView headerBeginRefreshing];
+//    [self.tableView headerBeginRefreshing];
     [self.tableView addFooterWithTarget:self action:@selector(footerRefreshing)];
     
     // 设置文字(也可以不设置,默认的文字在MJRefreshConst中修改)

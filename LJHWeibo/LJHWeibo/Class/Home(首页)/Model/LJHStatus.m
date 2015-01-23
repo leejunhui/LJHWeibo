@@ -21,7 +21,7 @@ EEE MMM dd HH:mm:ss Z yyyy
  _created_at	NSString *	@"Mon Jan 12 10:28:23 +0800 2015"	0x0000000170057100
  */
 - (NSString *)created_at{
-    
+//    
 //    NSLog(@"%@",_created_at);
     // 1.获得微博的发送时间
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
