@@ -10,6 +10,7 @@
 
 @implementation LJHMessageViewController
 -(void)viewDidLoad{
+    [super viewDidLoad];
     [self setupNav];
 }
 

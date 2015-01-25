@@ -10,6 +10,7 @@
 
 @implementation LJHMeViewController
 -(void)viewDidLoad{
+    [super viewDidLoad];
     [self setupNav];
 }
 

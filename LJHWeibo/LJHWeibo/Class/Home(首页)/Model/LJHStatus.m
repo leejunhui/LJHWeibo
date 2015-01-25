@@ -97,5 +97,5 @@ EEE MMM dd HH:mm:ss Z yyyy
 //    [aCoder encodeObject:self.retweeted_status forKey:@"retweeted_status"];
 //}
 
-
+MJCodingImplementation
 @end

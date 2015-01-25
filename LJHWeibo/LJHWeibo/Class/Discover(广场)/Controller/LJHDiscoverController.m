@@ -13,6 +13,7 @@
 @implementation LJHDiscoverController
 
 - (void)viewDidLoad{
+    [super viewDidLoad];
     [self setupNav];
     [self setupGesture];
 }

@@ -38,6 +38,7 @@
 }
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
     [self setupUserData];
     [self setupRefresh];
     [self setupNav];
