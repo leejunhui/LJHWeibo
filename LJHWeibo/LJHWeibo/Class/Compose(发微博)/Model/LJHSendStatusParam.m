@@ -9,12 +9,12 @@
 #import "LJHSendStatusParam.h"
 @class IWFormData;
 @implementation LJHSendStatusParam
-- (NSMutableArray *)formData{
-    if (_formData == nil) {
-        _formData = [NSMutableArray array];
-    }
-    return _formData;
-}
+//- (NSMutableArray *)formData{
+//    if (_formData == nil) {
+//        _formData = [NSMutableArray array];
+//    }
+//    return _formData;
+//}
 
 - (NSDictionary *)objectClassInArray{
     return @{@"formData": [IWFormData class]};

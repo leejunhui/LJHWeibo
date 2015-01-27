@@ -237,6 +237,7 @@
 - (void)sendStatusWithImage{
     LJHSendStatusParam *param = [LJHSendStatusParam param];
     param.status = self.textView.text;
+    param.formData = [NSMutableArray array];
     for (int index = 0; index < self.imageViews.totalImages.count; index ++) {
         IWFormData *formData = [[IWFormData alloc] init];
         UIImage *image = self.imageViews.totalImages[index];
@@ -261,7 +262,7 @@
 - (void)sendStatusWithoutImage{
     LJHSendStatusParam *param = [LJHSendStatusParam param];
     param.status = self.textView.text;
-    
+    NSLog(@"TEXT:%@",self.textView.text);
     [LJHStatusTool sendStatusWithParam:param success:^(LJHSendStatusResult *result) {
         [MBProgressHUD showSuccess:@"发送成功"];
     } failure:^(NSError *error) {

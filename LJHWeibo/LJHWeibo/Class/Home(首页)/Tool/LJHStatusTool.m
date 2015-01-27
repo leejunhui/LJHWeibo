@@ -68,6 +68,7 @@
 }
 
 + (void)sendStatusWithParam:(LJHSendStatusParam *)param success:(void (^)(LJHSendStatusResult *))success failure:(void (^)(NSError *))failure{
+    NSLog(@"FORMDATA:%@",param.formData);
     if (param.formData == nil) {
         [LJHHttpTool postWithURL:@"https://api.weibo.com/2/statuses/update.json" params:param.keyValues success:^(id json) {
             if (success) {
@@ -94,7 +95,6 @@
         }];
         LJHLog(@"有图片要发送!");
     }
-
 }
 
 @end
